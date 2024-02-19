@@ -7,7 +7,7 @@ An online U-Fund system built in Java 17=> and ___ _replace with other platform 
 
 - Zach Herring
 - Devin Rhodie
-- MEMBER3
+- Nick Farsaci 
 - MEMBER4
 
 
