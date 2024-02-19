@@ -26,4 +26,27 @@ public class Need {
         this.cost = cost;
         this.description = description;
     }
+
+    /**
+     * Retrieves the id of the hero
+     * @return The id of the hero
+     */
+    public int getId() {return id;}
+
+    /**
+     * Sets the name of the hero - necessary for JSON object to Java object deserialization
+     * @param name The name of the hero
+     */
+    public void setName(String name) {this.name = name;}
+
+    /**
+     * Retrieves the name of the hero
+     * @return The name of the hero
+     */
+    public String getName() {return name;}
+
+    @Override
+    public String toString() {
+        return String.format(STRING_FORMAT,id,name);
+    }
 }
