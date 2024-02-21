@@ -1,4 +1,4 @@
-package com.ufund.api.ufundapi.model
+package com.ufund.api.ufundapi.model;
 
 import java.util.logging.Logger;
 
@@ -11,6 +11,7 @@ public class Need {
     @JsonProperty("cost") private int cost;
     @JsonProperty("description") private string description;
 
+    static final String STRING_FORMAT = "Need [id=%d, name=%s, cost=%d, description=%s]";
     /* 
      * Create a need with a given name, cost, description
      * @param id ID of need
@@ -19,7 +20,7 @@ public class Need {
      * @param description description of need
 
     */
-    public Need(@JsonProperty("id") private int id, @JsonProperty("name") private String name, @JsonProperty("cost") private int cost, @JsonProperty("description") private String description)
+    public Need(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("cost") int cost, @JsonProperty("description") String description)
     {
         this.id = id;
         this.name = name;
