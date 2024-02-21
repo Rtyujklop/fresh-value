@@ -11,10 +11,10 @@ geometry: margin=1in
 ## Team Information
 * Team name: Trees
 * Team members
-  * Zach Herring
-  * Devin Rhodie
   * Nick Farsaci
   * Ryan Noyes
+  * Zach Herring
+  * Devin Rhodie
 
 ## Executive Summary
 
@@ -54,7 +54,7 @@ This section describes the features of the application.
 
 This section describes the application domain.
 
-![Domain Model](domain-model-placeholder.png)
+![Domain Model](team_domain_model_final.pdf)
 
 > _**[Sprint 2 & 4]** Provide a high-level overview of the domain for this application. You
 > can discuss the more important domain entities and their relationship
@@ -107,8 +107,8 @@ This section describes the web interface flow; this is how the user views and in
  >* _Include other details such as attributes and method signatures that you think are needed to support the level of detail in your discussion._
 
 ### ViewModel Tier
-Class: NeedController.java
-Purpose: Handles the REST API requests for the Needs resource. This class "controls" the program by taking requests and passing those requests to other classes. When it gets a response, it then sends out the response back where the request came from.
+> _**[Sprint 1]** List the classes supporting this tier and provide a description of there purpose._
+Controller/Need Controller - Class that sends out the API request, and returns HTTP status' and Need objects
 
 > _**[Sprint 4]** Provide a summary of this tier of your architecture. This
 > section will follow the same instructions that are given for the View
@@ -120,14 +120,10 @@ Purpose: Handles the REST API requests for the Needs resource. This class "contr
 ![Replace with your ViewModel Tier class diagram 1, etc.](model-placeholder.png)
 
 ### Model Tier
-Class: Need.java
-Purpose: Represents a specific need and has all of the properties that a need can have.
-
-Class: NeedDAO.java
-Purpose: Defines the interface for Need object persistence
-
-Class: NeedFileDAO.java
-Purpose: Implements the functionality for JSON file-based peristance for Needs. This allows the needs to be created, updated, deleted, and retrieved.
+> _**[Sprint 1]** List the classes supporting this tier and provide a description of there purpose._
+Model/Need class - Handles data attributed to a need (Name, cost, id, description) as well as a few helper functions to get these values
+Persistence/NeedDAO - Public interface that defines the API functions
+Persistence/NeedDAOFile - Class that reads/writes to the JSON file (storage/inventory), and performs functions on it when the API is called
 
 > _**[Sprint 2, 3 & 4]** Provide a summary of this tier of your architecture. This
 > section will follow the same instructions that are given for the View
@@ -140,7 +136,8 @@ Purpose: Implements the functionality for JSON file-based peristance for Needs. 
 
 ## OO Design Principles
 
-We have considered the OO Principles of single responsibility, low coupling, open/closed, information expert, dependency inversion, controller
+> _**[Sprint 1]** Name and describe the initial OO Principles that your team has considered in support of your design (and implementation) for this first Sprint._
+Since the scope of the project is quite small at the moment, we were mainly thinking about Single Responsibility and how each class has it's own "job". In further sprints, we plan to add more from SOLID and other principles.
 
 > _**[Sprint 2, 3 & 4]** Will eventually address upto **4 key OO Principles** in your final design. Follow guidance in augmenting those completed in previous Sprints as indicated to you by instructor. Be sure to include any diagrams (or clearly refer to ones elsewhere in your Tier sections above) to support your claims._
 
