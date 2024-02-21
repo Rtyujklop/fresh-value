@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import com.ufund.api.ufundapi.persistence.NeedDAO;
 import com.ufund.api.ufundapi.model.Need;
 
@@ -33,7 +32,7 @@ public class NeedController
 
     @GetMapping("/{id}")
     public ResponseEntity<Need> getNeed(@PathVariable int id) {
-        LOG.info("GET /needs/" + id);
+        LOG.info("GET /Needs/" + id);
         try {
 
             Need need = needDao.getNeed(id);
@@ -55,7 +54,7 @@ public class NeedController
 
     @GetMapping("")
     public ResponseEntity<Need[]> getNeeds() {
-        LOG.info("GET /needs");
+        LOG.info("GET /Needs");
         try 
         {
             Need[] needs = needDao.getNeeds();
