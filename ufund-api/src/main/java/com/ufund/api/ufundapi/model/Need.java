@@ -50,7 +50,7 @@ public class Need {
 
     public int getCost() {return cost;}
 
-    public String getDesc() {return description; }
+    public String getDescription() {return description; }
 
     @Override
     public String toString() {
