@@ -4,7 +4,11 @@ import java.util.logging.Logger;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
+/**
+ * Represents a Need entity
+ * 
+ * @author Team Trees
+ */
 public class Need {
     private static final Logger LOG = Logger.getLogger(Need.class.getName());
 
@@ -31,27 +35,38 @@ public class Need {
     }
 
     /**
-     * Retrieves the id of the hero
-     * @return The id of the hero
+     * Retrieves the id of the need
+     * @return The id of the need
      */
     public int getId() {return id;}
 
     /**
-     * Sets the name of the hero - necessary for JSON object to Java object deserialization
-     * @param name The name of the hero
+     * Sets the name of the need - necessary for JSON object to Java object deserialization
+     * @param name The name of the need
      */
     public void setName(String name) {this.name = name;}
 
     /**
-     * Retrieves the name of the hero
-     * @return The name of the hero
+     * Retrieves the name of the need
+     * @return The name of the need
      */
     public String getName() {return name;}
 
+    /**
+     * Retrieves the cost of the need
+     * @return The cost of the need
+     */
     public int getCost() {return cost;}
 
+    /**
+     * Retrieves the description of the need
+     * @return The description of the need
+     */
     public String getDescription() {return description; }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return String.format(STRING_FORMAT,id,name,cost,description);
