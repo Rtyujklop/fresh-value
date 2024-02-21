@@ -2,14 +2,16 @@ package com.ufund.api.ufundapi.model;
 
 import java.util.logging.Logger;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 public class Need {
     private static final Logger LOG = Logger.getLogger(Need.class.getName());
 
     @JsonProperty("id") private int id;
-    @JsonProperty("name") private string name;
+    @JsonProperty("name") private String name;
     @JsonProperty("cost") private int cost;
-    @JsonProperty("description") private string description;
+    @JsonProperty("description") private String description;
 
     static final String STRING_FORMAT = "Need [id=%d, name=%s, cost=%d, description=%s]";
     /* 
@@ -46,8 +48,12 @@ public class Need {
      */
     public String getName() {return name;}
 
+    public int getCost() {return cost;}
+
+    public String getDesc() {return description; }
+
     @Override
     public String toString() {
-        return String.format(STRING_FORMAT,id,name);
+        return String.format(STRING_FORMAT,id,name,cost,description);
     }
 }

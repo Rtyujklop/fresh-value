@@ -20,9 +20,12 @@ import com.ufund.api.ufundapi.persistence.NeedDAO;
 import com.ufund.api.ufundapi.model.Need;
 
 @RestController
-@RequestMapping("needs")
+@RequestMapping("Needs")
 public class NeedController 
 {
+    private static final Logger LOG = Logger.getLogger(NeedController.class.getName());
+    private NeedDAO needDao;
+
     public NeedController(NeedDAO needDao)
     {   
         this.needDao = needDao;
@@ -112,6 +115,7 @@ public class NeedController
         }
     }
 
+    @DeleteMapping("/{id}")
     public ResponseEntity<Need> deleteNeed(@PathVariable int id) {
         LOG.info("DELETE /needs/" + id);
         try {

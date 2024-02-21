@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -68,7 +69,7 @@ public class NeedFileDAO implements NeedDAO{
         Need[] NeedArray = objectMapper.readValue(new File(filename),Need[].class);
 
         for (Need Need : NeedArray) {
-            Need.put(Need.getId(),Need);
+            Needs.put(Need.getId(),Need);
             if (Need.getId() > nextId)
                 nextId = Need.getId();
         }
@@ -103,7 +104,7 @@ public class NeedFileDAO implements NeedDAO{
     @Override
     public Need createNeed(Need Need) throws IOException {
         synchronized(Needs) {
-            Need newNeed = new Need(nextId(),Need.getName());
+            Need newNeed = new Need(nextId(),Need.getName(),Need.getCost(),Need.getDesc());
             Needs.put(newNeed.getId(),newNeed);
             save(); // may throw an IOException
             return newNeed;
