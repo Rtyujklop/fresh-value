@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.ufund.api.ufundapi.persistence.NeedDAO;
-import com.heroes.api.heroesapi.model.Hero;
 import com.ufund.api.ufundapi.model.Need;
 
 /**
