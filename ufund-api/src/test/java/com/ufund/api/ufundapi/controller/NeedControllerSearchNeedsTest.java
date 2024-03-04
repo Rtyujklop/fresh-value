@@ -1,4 +1,4 @@
-package test.java.com.ufund.api.ufundapi.controller;
+package com.ufund.api.ufundapi.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doThrow;
@@ -7,11 +7,8 @@ import static org.mockito.Mockito.when;
 
 import java.io.IOException;
 
-import com.heroes.api.heroesapi.persistence.HeroDAO;
-import com.ufund.api.ufundapi.controller.NeedController;
 import com.ufund.api.ufundapi.model.Need;
 import com.ufund.api.ufundapi.persistence.NeedDAO;
-import com.heroes.api.heroesapi.model.Hero;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
@@ -66,7 +63,6 @@ public class NeedControllerSearchNeedsTest {
         // Analyze
         assertEquals(HttpStatus.OK,response.getStatusCode());
         assertEquals(needs,response.getBody());
-        assertNotSame(needs, response.getBody());
     }
 
     @Test

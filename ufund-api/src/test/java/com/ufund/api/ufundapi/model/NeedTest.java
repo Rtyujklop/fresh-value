@@ -1,13 +1,10 @@
-package test.java.com.ufund.api.ufundapi.model;
+package com.ufund.api.ufundapi.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.beans.Transient;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import com.ufund.api.ufundapi.model.Need;
 
 @Tag("Model-tier")
 public class NeedTest {
@@ -58,7 +55,7 @@ public class NeedTest {
     }
 
     @Test 
-    public testToString() {
+    public void testToString() {
         // Setup
         int id = 99;
         String name = "White Spruce";
