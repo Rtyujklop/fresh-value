@@ -17,7 +17,7 @@ import com.ufund.api.ufundapi.model.Need;
 import com.ufund.api.ufundapi.persistence.NeedDAO;
 
 @Tag("Controller-tier")
-public class NeedControllerTests {
+public class NeedController_deleteNeedTests {
     private NeedController needController;
     private NeedDAO mockNeedDAO;
         
@@ -25,20 +25,6 @@ public class NeedControllerTests {
     public void setupNeedController() {
         mockNeedDAO = mock(NeedDAO.class);
         needController = new NeedController(mockNeedDAO);
-    }
-
-    @Test
-    public void testCreateNeed() throws IOException {
-        // Setup
-        Need testedNeed = new Need(1,"Pine Tree", 100, "A pine tree");
-        when(mockNeedDAO.createNeed(testedNeed)).thenReturn(testedNeed);
-
-        // Invoke
-        ResponseEntity<Need> response = needController.createNeed(testedNeed);
-
-        // Analyze
-        assertEquals(HttpStatus.CREATED,response.getStatusCode());
-        assertEquals(testedNeed,response.getBody());
     }
 
     @Test
