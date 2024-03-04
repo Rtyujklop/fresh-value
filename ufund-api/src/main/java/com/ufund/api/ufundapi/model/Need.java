@@ -17,7 +17,7 @@ public class Need {
     @JsonProperty("cost") private int cost;
     @JsonProperty("description") private String description;
 
-    static final String STRING_FORMAT = "Need [id=%d, name=%s, cost=%d, description=%s]";
+    public static final String STRING_FORMAT = "Need [id=%d, name=%s, cost=%d, description=%s]";
     /* 
      * Create a need with a given name, cost, description
      * @param id ID of need
