@@ -83,5 +83,51 @@ public class NeedFileDAOTests
         Need check = needFileDAO.getNeed(55);
         assertEquals(check.getId(), need.getId(), "Need does not match");
     }
+
+    @Test
+    public void testDeleteNeed()
+    {
+        boolean delete = assertDoesNotThrow(() -> needFileDAO.deleteNeed(50), "Deletion threw exception");
+        assertEquals(delete, true, "Deletion failed");
+        assertEquals(needFileDAO.Needs.size(), 4);
+    }
+
+    @Test
+    public void testUpdateNeed()
+    {
+        Need need = new Need(52, "Olive Tree", 104, "This is an olive tree");
+
+        Need update = assertDoesNotThrow(() -> needFileDAO.updateNeed(need), "Update threw exception");
+
+        assertNotNull(update);
+        Need check = needFileDAO.getNeed(52);
+        assertEquals(check, need);
+
+    }
+
+    @Test
+    public void testNeedNotFound()
+    {
+        Need need = needFileDAO.getNeed(12);
+
+        assertEquals(need, null);
+    }
+
+    public void testUpdateNotFound()
+    {
+        Need need = new Need(12, "Olive Tree", 104, "This is an olive tree");
+
+        Need update = assertDoesNotThrow(() -> needFileDAO.updateNeed(need), "Update threw exception");
+
+        assertNull(update);
+
+    }
+
+    public void testDeleteeNotFound()
+    {
+        boolean delete = assertDoesNotThrow(() -> needFileDAO.deleteNeed(12), "Deletion threw exception");
+        assertEquals(delete, false);
+        assertEquals(needFileDAO.Needs.size(), fakeNeeds.length);
+    }
     
 }
