@@ -61,5 +61,27 @@ public class NeedFileDAOTests
 
         assertEquals(need, fakeNeeds[1]);
     }
+
+    @Test
+    public void testFindNeeds()
+    {   
+        Need[] needs = needFileDAO.findNeeds("Oa");
+
+        assertEquals(needs.length, 2, "Wrong amount of needs found");
+        assertEquals(needs[0], fakeNeeds[1], "Wrong need found");
+        assertEquals(needs[1], fakeNeeds[2], "Wrong need found");
+    }
+
+    @Test
+    public void testCreateNeed()
+    {
+        Need need = new Need(55, "Olive Tree", 104, "This is an olive tree");
+
+        Need result = assertDoesNotThrow(() -> needFileDAO.createNeed(need), "Creating need threw exception");
+        assertNotNull(result);
+
+        Need check = needFileDAO.getNeed(55);
+        assertEquals(check.getId(), need.getId(), "Need does not match");
+    }
     
 }
