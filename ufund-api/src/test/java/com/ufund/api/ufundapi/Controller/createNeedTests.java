@@ -1,6 +1,6 @@
-package com.ufund.api.ufundapi;
+package com.ufund.api.ufundapi.Controller;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -17,7 +17,7 @@ import com.ufund.api.ufundapi.model.Need;
 import com.ufund.api.ufundapi.persistence.NeedDAO;
 
 @Tag("Controller-tier")
-public class NeedController_createNeedTests {
+public class createNeedTests {
     private NeedController needController;
     private NeedDAO mockNeedDAO;
         
@@ -39,5 +39,34 @@ public class NeedController_createNeedTests {
         // Analyze
         assertEquals(HttpStatus.CREATED,response.getStatusCode());
         assertEquals(testedNeed,response.getBody());
+    }
+
+    @Test
+    public void testCreateNeedFailed() throws IOException { 
+        // Setup
+        Need testedNeed = new Need(1,"Pine Tree", 100, "A pine tree");
+        // when createNeed is called, return false simulating failed
+        when(mockNeedDAO.createNeed(testedNeed)).thenReturn(null);
+
+        // Invoke
+        ResponseEntity<Need> response = needController.createNeed(testedNeed);
+
+        // Analyze
+        assertEquals(HttpStatus.CONFLICT,response.getStatusCode());
+    }
+
+    @Test
+    public void testCreateNeedHandleException() throws IOException {   
+        // Setup
+        Need testedNeed = new Need(1,"Pine Tree", 100, "A pine tree");
+
+        // When createNeed is called on the Mock Need DAO, throw an IOException
+        doThrow(new IOException()).when(mockNeedDAO).createNeed(testedNeed);
+
+        // Invoke
+        ResponseEntity<Need> response = needController.createNeed(testedNeed);
+
+        // Analyze
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR,response.getStatusCode());
     }
 }
