@@ -1,4 +1,4 @@
-package com.ufund.api.ufundapi.ontroller;
+package com.ufund.api.ufundapi.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doThrow;
