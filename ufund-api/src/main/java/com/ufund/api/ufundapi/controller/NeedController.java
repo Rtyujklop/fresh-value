@@ -137,13 +137,17 @@ public class NeedController
     @PostMapping("")
     public ResponseEntity<Need> createNeed(@RequestBody Need need) {
         LOG.info("POST /needs " + need);
-        try 
-        {
-            Need createNeed = needDao.createNeed(need);
-            return new ResponseEntity<Need>(createNeed, HttpStatus.CREATED);
-        }
-        catch(IOException e)
-        {
+        try {
+            Need existingNeed = needDao.getNeed(need.getId());
+            if (existingNeed != null) {
+                return new ResponseEntity<>(HttpStatus.CONFLICT);
+            }
+            Need createdNeed = needDao.createNeed(need);
+            if (createdNeed == null) {
+                return new ResponseEntity<>(HttpStatus.CONFLICT);
+            }
+            return new ResponseEntity<Need>(createdNeed, HttpStatus.CREATED);
+        } catch(IOException e) {
             LOG.log(Level.SEVERE,e.getLocalizedMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
