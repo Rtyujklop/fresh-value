@@ -9,6 +9,7 @@ public class UserLogin {
         this.username = username;
         this.password = password;
     }
+    
     // Method to validate the login credentials
     public boolean authenticate(String enteredUsername, String enteredPassword) {
         // Check if the entered username and password match the stored credentials
@@ -37,16 +38,22 @@ public class UserLogin {
     public static void main(String[] args) {
         // Example usage
         UserLogin user = new UserLogin("exampleUser", "examplePassword");
-
+        UserLogin admin = new UserLogin("Admin", "AdminPassword");
+        
         // Simulate user input (entered username and password)
         String enteredUsername = "exampleUser";
         String enteredPassword = "examplePassword";
-
+        String enteredAdminUsername = "Admin";
+        String enteredAdminPassword = "AdminPassword";
+        
         // Authenticate user
         if (user.authenticate(enteredUsername, enteredPassword)) {
             System.out.println("Login successful!");
+        } else if (admin.authenticate(enteredAdminUsername, enteredAdminPassword)) {
+            System.out.println("Login successful for admin!");
         } else {
             System.out.println("Invalid username or password.");
         }
     }
 }
+

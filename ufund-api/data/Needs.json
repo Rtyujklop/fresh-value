@@ -1,1 +1,8 @@
-[{"id":1,"name":"Oak","cost":1,"description":"This is an Oak tree"}]
+{
+    "trees": [
+    [{"id":1,"name":"Oak","cost":1,"description":"This is an Oak tree"}],
+    [{"id":2,"name":"Maple","cost":2,"description":"This is an Maple tree"}],
+    [{"id":3,"name":"Apple","cost":3,"description":"This is an Maple tree"}]
+    ]
+
+}
