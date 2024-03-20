@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrl: './needs.component.css'
 })
 export class NeedsComponent {
-
+  /*
   constructor(private needService: NeedServiceService)
   {}
   needs: Need[] = []
@@ -26,4 +26,5 @@ export class NeedsComponent {
     this.needService.getNeeds()
       .subscribe(needs => this.needs = needs);
   }
+  */
 }

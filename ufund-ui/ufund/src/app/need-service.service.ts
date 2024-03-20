@@ -11,7 +11,7 @@ import { MessageService } from './message.service';
 })
 export class NeedServiceService {
 
-  private needsURL = 'http://localhost:8080/needs';  // URL to web api
+  private needsURL = 'http://localhost:8080/Needs';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -22,8 +22,8 @@ export class NeedServiceService {
   getNeeds(): Observable<Need[]> {
     return this.http.get<Need[]>(this.needsURL)
       .pipe(
-        tap(_ => this.log('fetched heroes')),
-        catchError(this.handleError<Need[]>('getHeroes', []))
+        tap(_ => this.log('fetched Needs')),
+        catchError(this.handleError<Need[]>('getNeeds', []))
       );
   }
 
