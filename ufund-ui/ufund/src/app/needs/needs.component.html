@@ -1,1 +1,8 @@
-<p>needs works!</p>
+<div>
+    <ul class="needs">
+        <li *ngfor="let need of needs">
+            <span class="badge">{{need.id}}</span>
+            <span class="name">{{need.name}}</span>
+        </li>
+    </ul>
+</div>
