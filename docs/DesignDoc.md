@@ -43,6 +43,8 @@ This section describes the features of the application.
 ### Definition of MVP
 > _**[Sprint 2 & 4]** Provide a simple description of the Minimum Viable Product._
 
+Sprint 2: The MVP, as of right now, consists of a basic web application that pulls from a list of needs managed by an administrator. The default URL leads to a login page, where upon log-in, will either show a user-view or an admin view. From this view, a user is able to view a list of needs contained within a database (within a json file). From there, they are able to add their desired needs to a cart, where they can proceed to checkout from there. If the admin-view is accessed, there will not be acess to a funding basket. Instead, the admin will be able to view the needs and then modify the needs that are visible (add/delete/modify).
+
 ### MVP Features
 >  _**[Sprint 4]** Provide a list of top-level Epics and/or Stories of the MVP._
 
@@ -87,6 +89,7 @@ Both the ViewModel and Model are built using Java and Spring Framework. Details 
 This section describes the web interface flow; this is how the user views and interacts with the web application.
 
 > _Provide a summary of the application's user interface.  Describe, from the user's perspective, the flow of the pages in the web application._
+Sprint 2: As of sprint 2, the default page a user will ecounter is the login page. Depending on how the user logs in (admin/user), they will be shown slightly different pages. The user will be shown a list of needs, and when clicked on (this will be implemented in our 10%), a short description of the need will be displayed to the side of the list. The user will have the option to add needs to their funding basket, which then can be viewed on a different page. Alternatively, the admin will not have the ability to add or view the funding basket. Instead, they will have the opportunity to see the user view, as well as the option to modify the visible list of needs (add/delete/modify).
 
 
 ### View Tier
@@ -163,6 +166,8 @@ Since the scope of the project is quite small at the moment, we were mainly thin
 > have not had any testing yet. Highlight the issues found during
 > acceptance testing and if there are any concerns._
 
+Sprint 2: As of right now, we have no stories that are failing their acceptance criteria tests. The only user stories that have not had any testing should be the ones in the product backlog.
+
 ### Unit Testing and Code Coverage
 > _**[Sprint 4]** Discuss your unit testing strategy. Report on the code coverage
 > achieved from unit testing of the code base. Discuss the team's
@@ -174,3 +179,6 @@ Since the scope of the project is quite small at the moment, we were mainly thin
 
 ## Ongoing Rationale
 >_**[Sprint 1, 2, 3 & 4]** Throughout the project, provide a time stamp **(yyyy/mm/dd): Sprint # and description** of any _**mayor**_ team decisions or design milestones/changes and corresponding justification._
+
+Sprint 1: n/a
+Sprint 2: n/a
