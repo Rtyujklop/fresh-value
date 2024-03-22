@@ -18,11 +18,16 @@ geometry: margin=1in
 
 ## Executive Summary
 
-This is a summary of the project.
+This project contains a web application that supports a charitable organization that helps donate and plant trees. A user on this site would log on, and find a selection of young trees that they can fund to be planted. They would have access to a funding basket, where they can select and insert tree(s) of their liking to fund. A user can also sort the trees by name, age, or cost on the page that contains the list of trees. Users, upon clicking a tree, can also view a detailed description of the tree. An administrator of the site, upon logging in, can view that same list of trees. They have the ability to add, remove, and modify the current visible list of trees. They do not have access to the funding basket. If they wish, they also can 'view' the website as a user.
 
 ### Purpose
 >  _**[Sprint 2 & 4]** Provide a very brief statement about the project and the most
 > important user group and user goals._
+
+The purpose of this project is to build a website that can support a charitable organization that helps donate and plant trees.
+
+User Group - People who enjoy nature, or people who wish to support charitable organizations
+User goal - Help better environment, plant trees
 
 ### Glossary and Acronyms
 > _**[Sprint 2 & 4]** Provide a table of terms and acronyms._
@@ -43,7 +48,7 @@ This section describes the features of the application.
 ### Definition of MVP
 > _**[Sprint 2 & 4]** Provide a simple description of the Minimum Viable Product._
 
-Sprint 2: The MVP, as of right now, consists of a basic web application that pulls from a list of needs managed by an administrator. The default URL leads to a login page, where upon log-in, will either show a user-view or an admin view. From this view, a user is able to view a list of needs contained within a database (within a json file). From there, they are able to add their desired needs to a cart, where they can proceed to checkout from there. If the admin-view is accessed, there will not be acess to a funding basket. Instead, the admin will be able to view the needs and then modify the needs that are visible (add/delete/modify).
+Sprint 2: The MVP, as of right now, consists of a basic web application that pulls from a list of needs managed by an administrator. The default URL leads to a login page, where upon log-in, will either show a user-view or an admin view. From this view, a user is able to view a list of needs contained within a database (within a json file). From there, they are able to add their desired needs to a cart, where they can proceed to checkout from there. If the admin-view is accessed, there will not be access to a funding basket. Instead, the admin will be able to view the needs and then modify the needs that are visible (add/delete/modify).
 
 ### MVP Features
 >  _**[Sprint 4]** Provide a list of top-level Epics and/or Stories of the MVP._
@@ -56,12 +61,13 @@ Sprint 2: The MVP, as of right now, consists of a basic web application that pul
 
 This section describes the application domain.
 
-![Domain Model](team_domain_model_final.pdf)
+![Domain Model](team_domain_model_final.pdf) (in directory)
 
 > _**[Sprint 2 & 4]** Provide a high-level overview of the domain for this application. You
 > can discuss the more important domain entities and their relationship
 > to each other._
 
+Sprint 2: As of right now, the application has a model, controller and persistence tiers. Inside the model, there is a generic need class that contains basic information about the need: id, name, cost, and description. This interacts with the NeedFileDAO, as well as the NeedDAO. The needDAO is an interface in which has all the basic calls for the need class, which then the actual implementation is within the needFileDAO. These are both within the persistence folder. The controller folder has a needController, which deals with the actual API calls and responses. There is also a need basket controller, which is to manage the need basket for the 'user' (similar to the need controller), as well as a funding basket DAO which implements the basic functions of the funding basket.
 
 ## Architecture and Design
 
@@ -73,7 +79,7 @@ The following Tiers/Layers model shows a high-level view of the webapp's archite
 **NOTE**: detailed diagrams are required in later sections of this document.
 > _**[Sprint 1]** (Augment this diagram with your **own** rendition and representations of sample system classes, placing them into the appropriate M/V/VM (orange rectangle) tier section. Focus on what is currently required to support **Sprint 1 - Demo requirements**. Make sure to describe your design choices in the corresponding _**Tier Section**_ and also in the _**OO Design Principles**_ section below.)_
 
-![The Tiers & Layers of the Architecture](architecture-tiers-and-layers.png)
+![The Tiers & Layers of the Architecture](architecture-tiers-and-layers.png) (in directory)
 
 The web application, is built using the Model–View–ViewModel (MVVM) architecture pattern. 
 
@@ -89,6 +95,7 @@ Both the ViewModel and Model are built using Java and Spring Framework. Details 
 This section describes the web interface flow; this is how the user views and interacts with the web application.
 
 > _Provide a summary of the application's user interface.  Describe, from the user's perspective, the flow of the pages in the web application._
+
 Sprint 2: As of sprint 2, the default page a user will ecounter is the login page. Depending on how the user logs in (admin/user), they will be shown slightly different pages. The user will be shown a list of needs, and when clicked on (this will be implemented in our 10%), a short description of the need will be displayed to the side of the list. The user will have the option to add needs to their funding basket, which then can be viewed on a different page. Alternatively, the admin will not have the ability to add or view the funding basket. Instead, they will have the opportunity to see the user view, as well as the option to modify the visible list of needs (add/delete/modify).
 
 
@@ -121,7 +128,7 @@ Controller/Need Controller - Class that sends out the API request, and returns H
 > _At appropriate places as part of this narrative provide **one** or more updated and **properly labeled**
 > static models (UML class diagrams) with some details such as critical attributes and methods._
 > 
-![Replace with your ViewModel Tier class diagram 1, etc.](model-placeholder.png)
+![Replace with your ViewModel Tier class diagram 1, etc.](model.png) (in directory)
 
 ### Model Tier
 > _**[Sprint 1]** List the classes supporting this tier and provide a description of there purpose._
@@ -132,11 +139,15 @@ Persistence/NeedDAOFile - Class that reads/writes to the JSON file (storage/inve
 > _**[Sprint 2, 3 & 4]** Provide a summary of this tier of your architecture. This
 > section will follow the same instructions that are given for the View
 > Tier above._
+Model/Need class - Handles data attributed to a need (Name, cost, id, description) as well as a few helper functions to get these values
+Persistence/NeedDAO - Public interface that defines the API functions
+Persistence/NeedDAOFile - Class that reads/writes to the JSON file (storage/inventory), and performs functions on it when the API is called
+
 
 > _At appropriate places as part of this narrative provide **one** or more updated and **properly labeled**
 > static models (UML class diagrams) with some details such as critical attributes and methods._
 > 
-![Replace with your Model Tier class diagram 1, etc.](model-placeholder.png)
+![Replace with your Model Tier class diagram 1, etc.](model.png) (in directory)
 
 ## OO Design Principles
 
@@ -176,6 +187,8 @@ Sprint 2: As of right now, we have no stories that are failing their acceptance 
 
 >_**[Sprint 2 & 4]** **Include images of your code coverage report.** If there are any anomalies, discuss
 > those._
+(code-coverage.png) (in directory)
+Sprint 2: For our code coverage, it seems that our NeedController needs to be tested additonally, as our coverage is under 50%.
 
 ## Ongoing Rationale
 >_**[Sprint 1, 2, 3 & 4]** Throughout the project, provide a time stamp **(yyyy/mm/dd): Sprint # and description** of any _**mayor**_ team decisions or design milestones/changes and corresponding justification._
