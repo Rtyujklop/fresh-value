@@ -3,13 +3,23 @@
   <div><span>id: </span>{{ need.id }}</div>
   <div>
     <label for="need-name">Need name: </label>
+<<<<<<< HEAD
     <input id="need" [(ngModel)]="need.name" placeholder="need" />
     <br>
     <label for="need-cost">Need Cost: </label>
     <input id="need" [(ngModel)]="need.cost" placeholder="need" />
     <br>
+=======
+    <input id="need" [(ngModel)]="need.name" placeholder="need" readonly />
+    <br />
+>>>>>>> abfbdbc2e89b5de962da5e6b6c0753def1238483
     <label for="need-description">Need description: </label>
-    <input id="need" [(ngModel)]="need.description" placeholder="need" />
+    <input
+      id="need"
+      [(ngModel)]="need.description"
+      placeholder="need"
+      readonly
+    />
   </div>
   <button (click)="addToCart(need)">Add to Cart</button>
 </div>
