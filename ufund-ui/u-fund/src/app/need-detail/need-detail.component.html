@@ -3,10 +3,15 @@
   <div><span>id: </span>{{ need.id }}</div>
   <div>
     <label for="need-name">Need name: </label>
-    <input id="need" [(ngModel)]="need.name" placeholder="need" />
+    <input id="need" [(ngModel)]="need.name" placeholder="need" readonly />
     <br />
     <label for="need-description">Need description: </label>
-    <input id="need" [(ngModel)]="need.description" placeholder="need" />
+    <input
+      id="need"
+      [(ngModel)]="need.description"
+      placeholder="need"
+      readonly
+    />
   </div>
   <button (click)="addToCart(need)">Add to Cart</button>
 </div>
