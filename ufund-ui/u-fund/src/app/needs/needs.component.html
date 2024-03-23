@@ -1,9 +1,13 @@
 <h2>My needs</h2>
 <ul class="needs">
   <li *ngFor="let need of needs">
-    <button [class.selected]="need === selectedNeed" type="button" (click)="onSelect(need)">
-      <span class="badge">{{need.id}}</span>
-      <span class="name">{{need.name}}</span>
+    <button
+      [class.selected]="need === selectedNeed"
+      type="button"
+      (click)="onSelect(need)"
+    >
+      <span class="badge">{{ need.id }}</span>
+      <span class="name">{{ need.name }}</span>
     </button>
   </li>
 </ul>

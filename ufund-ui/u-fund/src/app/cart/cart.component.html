@@ -1,0 +1,10 @@
+<div class="cart">
+  <h2>Your Cart</h2>
+  <ul>
+    <li *ngFor="let item of cartService.getNeeds()">
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.description }}</p>
+      <button (click)="deleteFromCart(item)">Remove</button>
+    </li>
+  </ul>
+</div>
