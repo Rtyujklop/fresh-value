@@ -1,21 +1,48 @@
 import { Injectable } from '@angular/core';
 import { Need } from './need'
-import { NEEDS } from './mock-needs';
 import { Observable, of } from 'rxjs';
+import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NeedService {
 
-  constructor() 
+  constructor(private http: HttpClient, private messageService: MessageService) 
   { 
     
   }
 
+  private needsUrl = 'http://localhost:8080/Needs';
+
+  private log(message: string) {
+    this.messageService.add(`NeedService: ${message}`);
+  }
+
   getNeeds(): Observable<Need[]>  
   {
-    const needs = of(NEEDS)
-    return needs;
+    return this.http.get<Need[]>(this.needsUrl)
+    .pipe(
+      tap(_ => this.log('fetched heroes')),
+      catchError(this.handleError<Need[]>('getNeeds', []))
+    );
   }
+
+ 
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+}
+  
 }
