@@ -1,0 +1,35 @@
+<h2>List of Trees</h2>
+<div>
+  <label for="need-name">Need Name: </label>
+  <input id="need-name" #needName />
+  <br>
+  <label for="need-cost">Need Cost: </label>
+  <input id="need-cost" type="number" #needCost/>
+  <br>
+  <label for="need-description">Need Description: </label>
+  <input id="need-description" #needDescription/>
+  <br>
+  <button type="button" class="add-button" (click)="addNeed(needName.value, needCost.value, needDescription.value); needName.value=''; needCost.value=''; needDescription.value=''">
+    Add Need
+  </button>
+  
+</div>
+
+
+
+<ul class="needs">
+  <li *ngFor="let need of needs">
+    <button
+      [class.selected]="need === selectedNeed"
+      type="button"
+      (click)="onSelect(need)"
+    >
+      <span class="name">{{ need.name }}</span> - $<span class="cost">{{
+        need.cost
+      }}</span>
+    </button>
+    <button type="button" class="delete-button" title="delete need"
+  (click)="deleteNeed(need)">Delete Need</button>
+  </li>
+</ul>
+<app-need-detail [need]="selectedNeed"></app-need-detail>

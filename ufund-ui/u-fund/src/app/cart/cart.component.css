@@ -1,0 +1,54 @@
+/* The .cart class styles the overall cart container */
+.cart {
+  width: 20%;
+  position: absolute;
+  top: 0; /* Positions the cart at the top of the parent container */
+  right: 0; /* Positions the cart at the right of the parent container */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f8f8f8;
+}
+
+/* Styles the h2 elements within the .cart class */
+.cart h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* Styles the ul elements within the .cart class */
+.cart ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Styles the li elements within the ul elements in the .cart class */
+.cart ul li {
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0;
+}
+
+/* Styles the h3 elements within the li elements in the .cart class */
+.cart ul li h3 {
+  color: #333;
+}
+
+/* Styles the p elements within the li elements in the .cart class */
+.cart ul li p {
+  color: #666;
+}
+
+/* Styles the button elements within the li elements in the .cart class */
+.cart ul li button {
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Styles the button elements within the li elements in the .cart class when they are hovered over */
+.cart ul li button:hover {
+  background-color: #ff4500;
+}
