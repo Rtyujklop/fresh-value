@@ -9,7 +9,7 @@ import { MessageService } from "./message.service";
     providedIn: 'root'
 })
 export class UserService{
-    private usersUrl = 'https://localhost:8080/users';
+    private usersUrl = 'https://localhost:4200';
 
     constructor(
         private http: HttpClient,
@@ -72,7 +72,7 @@ export class UserService{
     }
 
     private log(message: string) {
-        this.messageService.add(`HeroService: ${message}`);
+        this.messageService.add(`UserService: ${message}`);
     }
 
     private handleError<T>(operation = 'operation', result?: T){
