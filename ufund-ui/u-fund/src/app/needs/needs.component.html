@@ -1,9 +1,15 @@
 <h2>List of Trees</h2>
 <div>
-  <label for="new-need">Need name: </label>
-  <input id="new-need" #needName />
-
-  <button type="button" class="add-button" (click)="addNeed(needName.value); needName.value=''">
+  <label for="need-name">Need Name: </label>
+  <input id="need-name" #needName />
+  <br>
+  <label for="need-cost">Need Cost: </label>
+  <input id="need-cost" type="number" #needCost/>
+  <br>
+  <label for="need-description">Need Description: </label>
+  <input id="need-description" #needDescription/>
+  <br>
+  <button type="button" class="add-button" (click)="addNeed(needName.value, needCost.value, needDescription.value); needName.value=''; needCost.value=''; needDescription.value=''">
     Add Need
   </button>
   

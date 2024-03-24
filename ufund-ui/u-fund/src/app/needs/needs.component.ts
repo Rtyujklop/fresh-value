@@ -41,7 +41,9 @@ export class NeedsComponent implements OnInit{
       .subscribe(needs => this.needs = needs)
   }
 
-  addNeed(name: string, cost: number, description: string): void {
+  addNeed(name: string, costNumber: string, description: string): void {
+    
+    const cost: Number = parseInt(costNumber);
     name = name.trim();
     if (!name) { return; }
     this.needService.addNeed({ name, cost, description } as Need)
@@ -56,6 +58,6 @@ export class NeedsComponent implements OnInit{
     this.needService.deleteNeed(need.id).subscribe();
   }
 
-  
+
 
 }

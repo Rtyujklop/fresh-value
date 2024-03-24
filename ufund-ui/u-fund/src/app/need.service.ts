@@ -29,7 +29,7 @@ export class NeedService {
   {
     return this.http.get<Need[]>(this.needsUrl)
     .pipe(
-      tap(_ => this.log('fetched heroes')),
+      tap(_ => this.log('fetched needs')),
       catchError(this.handleError<Need[]>('getNeeds', []))
     );
   }
