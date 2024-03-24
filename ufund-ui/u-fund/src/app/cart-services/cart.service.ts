@@ -5,12 +5,17 @@ import { Need } from '../need';
   providedIn: 'root',
 })
 export class CartService {
-  private items: Need[] = [];
+  private items: { need: Need; quantity: number }[] = [];
 
   constructor() {}
 
   addToCart(need: Need) {
-    this.items.push(need);
+    const item = this.items.find((item) => item.need.id === need.id);
+    if (item) {
+      item.quantity++;
+    } else {
+      this.items.push({ need, quantity: 1 });
+    }
   }
 
   getNeeds() {
@@ -18,6 +23,12 @@ export class CartService {
   }
 
   deleteFromCart(need: Need) {
-    this.items = this.items.filter((item) => item.id !== need.id);
+    const item = this.items.find((item) => item.need.id === need.id);
+    if (item) {
+      item.quantity--;
+      if (item.quantity === 0) {
+        this.items = this.items.filter((i) => i.need.id !== need.id);
+      }
+    }
   }
 }
