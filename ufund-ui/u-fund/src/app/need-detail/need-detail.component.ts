@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { Need } from '../need';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
+import { NgFor, NgIf, UpperCasePipe, Location } from '@angular/common';
 import { CartService } from '../cart-services/cart.service';
+import { NeedService } from '../need.service';
 
 @Component({
   selector: 'app-need-detail',
@@ -14,8 +15,22 @@ import { CartService } from '../cart-services/cart.service';
 export class NeedDetailComponent {
   @Input() need?: Need;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private needService: NeedService, private location: Location) {}
   addToCart(need: Need) {
     this.cartService.addToCart(need);
   }
+
+  save(): void {
+    if (this.need) {
+      this.needService.updateNeed(this.need)
+        .subscribe(() => this.goBack());
+    }
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
+
+  
+

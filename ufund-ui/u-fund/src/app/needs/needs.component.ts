@@ -1,7 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Need } from '../need';
 import { FormsModule, NgModel } from '@angular/forms';
-import { NEEDS } from '../mock-needs';
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { NeedDetailComponent } from '../need-detail/need-detail.component';
 import { NeedService } from '../need.service';
@@ -41,4 +40,14 @@ export class NeedsComponent implements OnInit{
     this.needService.getNeeds()
       .subscribe(needs => this.needs = needs)
   }
+
+  addNeed(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.needService.addNeed({ name } as Need)
+      .subscribe(need => {
+        this.needs.push(need);
+      });
+  }
+
 }
