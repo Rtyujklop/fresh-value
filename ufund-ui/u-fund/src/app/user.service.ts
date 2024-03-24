@@ -1,0 +1,82 @@
+import { Injectable } from "@angular/core";
+import { Need } from '../need';
+//import { User } from './user';
+import { HttpClient,HttpHeaders } from "@angular/common/http";
+import { Observable, of } from "rxjs";
+import { catchError, tap } from "rxjs/operators";
+import { MessageService } from "./message.service";
+
+@Injectable({
+    providedIn: 'root'
+})
+export class UserService{
+    private usersUrl = 'https://localhost:8080/users';
+
+    constructor(
+        private http: HttpClient,
+        //private httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })},
+        private messageService: MessageService) { }
+
+    setName(name:string | null) {
+        if (name == null) {
+            localStorage.setItem("user", "");
+        }
+        else {
+            localStorage.setItem("user", String(name));
+        }
+    }
+
+    getName() {
+        return localStorage.getItem("user");
+    }
+
+    getUsers(): Observable<User[]> {
+        var url = this.usersUrl;
+        return this.http.get<User[]>(url).pipe(
+            tap(_ => this.log('fetched users')),
+            catchError(this.handleError<User[]>('getUsers', []))
+        )
+
+    }
+    
+    getUser(name: string): Observable<Need> {
+        const url = `${this.usersUrl}/${name}`;
+        return this.http.get<Need>(url).pipe(
+            tap(_ => this.log(`fetched user name =${name}`)),
+            catchError(this.handleError<Need>(`getUser = ${name}`))
+            );
+    }
+
+    deleteUser(name: string): Observable<Need>{
+        const url = `${this.usersUrl}/${name}`;
+        return this.http.get<Need>(url).pipe(
+            tap(_ => this.log(`deleted user name =${name}`)),
+            catchError(this.handleError<Need>(`deleteUser}`))
+            );
+    }
+
+    // updateCart(user: Need): Observable<Need> {
+    //     return(this.http.put<Need>(this.usersUrl, user, this.httpOptions).pipe(
+    //         tap(_ => this.log(`updated user cart =${user.cart}`)),
+    //         catchError(this.handleError<Need>(`updateCart = ${user.cart}`))
+    //     ));
+    // }
+
+    httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+
+    private log(message: string) {
+        this.messageService.add(`HeroService: ${message}`);
+    }
+
+    private handleError<T>(operation = 'operation', result?: T){
+        return (error:any): Observable<T> => {
+            console.error(error);
+
+            this.log(`${operation} failed: ${error.message}`);
+
+            return of(result as T);
+        };
+    }
+}
