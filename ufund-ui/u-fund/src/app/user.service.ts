@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { Need } from '../need';
 import { User } from './user';
 import { HttpClient,HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
@@ -38,11 +37,11 @@ export class UserService{
 
     }
     
-    getUser(name: string): Observable<Need> {
+    getUser(name: string): Observable<User> {
         const url = `${this.usersUrl}/${name}`;
-        return this.http.get<Need>(url).pipe(
+        return this.http.get<User>(url).pipe(
             tap(_ => this.log(`fetched user name =${name}`)),
-            catchError(this.handleError<Need>(`getUser = ${name}`))
+            catchError(this.handleError<User>(`getUser = ${name}`))
             );
     }
 
@@ -53,18 +52,18 @@ export class UserService{
         )
     }
 
-    deleteUser(name: string): Observable<Need>{
+    deleteUser(name: string): Observable<User>{
         const url = `${this.usersUrl}/${name}`;
-        return this.http.get<Need>(url).pipe(
+        return this.http.get<User>(url).pipe(
             tap(_ => this.log(`deleted user name =${name}`)),
-            catchError(this.handleError<Need>(`deleteUser}`))
+            catchError(this.handleError<User>(`deleteUser}`))
             );
     }
 
-    // updateCart(user: Need): Observable<Need> {
-    //     return(this.http.put<Need>(this.usersUrl, user, this.httpOptions).pipe(
+    // updateCart(user: User): Observable<User> {
+    //     return(this.http.put<User>(this.usersUrl, user, this.httpOptions).pipe(
     //         tap(_ => this.log(`updated user cart =${user.cart}`)),
-    //         catchError(this.handleError<Need>(`updateCart = ${user.cart}`))
+    //         catchError(this.handleError<User>(`updateCart = ${user.cart}`))
     //     ));
     // }
 
