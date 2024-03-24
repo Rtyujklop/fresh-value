@@ -41,13 +41,21 @@ export class NeedsComponent implements OnInit{
       .subscribe(needs => this.needs = needs)
   }
 
-  addNeed(name: string): void {
+  addNeed(name: string, cost: number, description: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.needService.addNeed({ name } as Need)
+    this.needService.addNeed({ name, cost, description } as Need)
       .subscribe(need => {
         this.needs.push(need);
       });
   }
+
+  deleteNeed(need: Need): void 
+  {
+    this.needs = this.needs.filter(n => n !== need);
+    this.needService.deleteNeed(need.id).subscribe();
+  }
+
+  
 
 }
