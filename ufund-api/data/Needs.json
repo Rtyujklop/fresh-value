@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-[{"id":1,"name":"Oak","cost":1,"description":"This is an Oak tree"},{"id":2,"name":"Maple","cost":2,"description":"This is a Maple tree"},{"id":3,"name":"Apple","cost":3,"description":"This is an Apple tree"},{"id":4,"name":"Coconut","cost":0,"description":null},{"id":6,"name":"Test","cost":100,"description":"Test Description"}]
-=======
 [
-  {
-    "id": 1,
-    "name": "Oak",
-    "cost": 1,
-    "description": "This is an Oak tree"
-  },
+  { "id": 1, "name": "Oak", "cost": 1, "description": "This is an Oak tree" },
   {
     "id": 2,
     "name": "Maple",
@@ -19,6 +11,7 @@
     "name": "Apple",
     "cost": 3,
     "description": "This is an Apple tree"
-  }
+  },
+  { "id": 4, "name": "Coconut", "cost": 0, "description": null },
+  { "id": 6, "name": "Test", "cost": 100, "description": "Test Description" }
 ]
->>>>>>> main
