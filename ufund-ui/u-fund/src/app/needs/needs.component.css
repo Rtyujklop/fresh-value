@@ -4,14 +4,10 @@
   max-height: 500px;
 }
 
-/* Styles the ul elements within the .needs class */
-.needs ul {
-  list-style-type: none; /* Removes the default bullet points from the ul elements; Not working Right now */
-}
-
 /* Styles the li elements within the .needs class */
 .needs li {
   padding: 10px 0;
+  list-style-type: none;
 }
 
 /* Styles the button elements within the li elements in the .needs class */

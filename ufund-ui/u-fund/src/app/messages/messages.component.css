@@ -1,0 +1,19 @@
+/* Styles for the individual messages */
+div div {
+  max-width: 20%;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  padding: 4px;
+  margin-bottom: 10px;
+  word-wrap: break-word; /* This will break the text to next line if it exceeds the max-width */
+}
+
+/* Styles for the clear button */
+button.clear {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
