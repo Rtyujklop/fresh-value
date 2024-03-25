@@ -18,16 +18,12 @@ export class LoginViewComponent {
     private messageService: MessageService
   ) { }
 
-  login(username: String, password: string) {
+  login(username: string, password: string) {
     this.userService.getUser(username).subscribe(users => {
       const foundUser = users[0].username === username && users[0].password === password;
-      console.log(users)
-      console.log(foundUser)
-      console.log(users[0].password)
-      console.log(users[0].name)
       if (foundUser) {
-        this.userService.setName(users[0].name);
-        if (users[0].name === "Admin") {
+        this.userService.setName(users[0].username);
+        if (users[0].username === "Admin") {
           this.router.navigate(['../needs']);
         } else {
           this.router.navigate(['../user-view']);
