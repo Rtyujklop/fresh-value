@@ -6,12 +6,13 @@ import { NeedService } from '../need.service';
 import { Need } from '../need';
 import { FormsModule, NgModel } from '@angular/forms';
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-user-view',
   standalone: true,
   imports: [FormsModule, NgFor, NgIf, UpperCasePipe, 
-            NeedDetailComponent, CartComponent],
+            NeedDetailComponent, CartComponent, RouterOutlet],
   templateUrl: './user-view.component.html',
   styleUrl: './user-view.component.css'
 })
