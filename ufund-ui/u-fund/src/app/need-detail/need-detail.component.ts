@@ -20,16 +20,6 @@ export class NeedDetailComponent {
     this.cartService.addToCart(need);
   }
 
-  save(): void {
-    if (this.need) {
-      this.needService.updateNeed(this.need)
-        .subscribe(() => this.goBack());
-    }
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
 }
 
   

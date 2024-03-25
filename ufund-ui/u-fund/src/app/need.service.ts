@@ -36,7 +36,7 @@ export class NeedService {
 
 
   updateNeed(need: Need): Observable<any> {
-    return this.http.put(this.needsUrl, need, this.httpOptions).pipe(
+    return this.http.put(this.needsUrl + '/', need, this.httpOptions).pipe(
       tap(_ => this.log(`updated need id=${need.id}`)),
       catchError(this.handleError<any>('updateNeed'))
     );

@@ -19,11 +19,8 @@ export class NeedDetailAdminComponent {
   save(): void {
     if (this.need) {
       this.needService.updateNeed(this.need)
-        .subscribe(() => this.goBack());
+        .subscribe();
     }
   }
 
-  goBack(): void {
-    this.location.back();
-  }
 }

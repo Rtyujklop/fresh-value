@@ -6,6 +6,7 @@ import { NeedDetailComponent } from '../need-detail/need-detail.component';
 import { NeedService } from '../need.service';
 import { MessageService } from '../message.service';
 import { NeedDetailAdminComponent } from '../need-detail-admin/need-detail-admin.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-needs',
@@ -59,4 +60,6 @@ export class NeedsComponent implements OnInit{
     this.needs = this.needs.filter(n => n !== need);
     this.needService.deleteNeed(need.id).subscribe();
   }
+
+  
 }

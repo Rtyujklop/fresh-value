@@ -35,8 +35,4 @@ export class LoginViewComponent {
       }
     });
   }
-
-  private setLog(message: string): void {
-    this.log = message;
-  }
 }
