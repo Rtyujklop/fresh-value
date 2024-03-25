@@ -1,3 +1,8 @@
+h2 {
+  text-align: center;
+  color: #333;
+}
+
 /* The .needs class styles the overall needs list container */
 .needs {
   width: 60%;
@@ -27,3 +32,4 @@
 .needs li button:hover {
   background-color: #ff4500;
 }
+
