@@ -2,11 +2,11 @@
     <h2>Login</h2>
         <div class="field">
             <label for="username">Username: </label>
-            <input type="text" id="username" name="username"><br><br>
+            <input type="text" id="username" #username><br><br>
         </div>
         <div class="field">
             <label for="password">Password: </label>
-            <input type="text" id="password" name="password"><br><br>
+            <input type="text" id="password" #password><br><br>
         </div>
-        <button type="button" class="add-button" (click)="login()">Login</button>
+        <button type="button" class="add-button" (click)="login(username.value, password.value)">Login</button>
 </form>

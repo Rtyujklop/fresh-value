@@ -9,7 +9,7 @@ import { MessageService } from "./message.service";
     providedIn: 'root'
 })
 export class UserService{
-    private usersUrl = 'https://localhost:8080/Users';
+    private usersUrl = 'http://localhost:8080/Users/';
 
     constructor(
         private http: HttpClient,
@@ -37,11 +37,11 @@ export class UserService{
 
     }
     
-    getUser(name: string): Observable<User> {
-        const url = `${this.usersUrl}/${name}`;
-        return this.http.get<User>(url).pipe(
+    getUser(name: String): Observable<User[]> {
+        const url = `${this.usersUrl}?username=${name}`;
+        return this.http.get<User[]>(url).pipe(
             tap(_ => this.log(`fetched user name =${name}`)),
-            catchError(this.handleError<User>(`getUser = ${name}`))
+            catchError(this.handleError<User[]>(`getUser = ${name}`))
             );
     }
 
