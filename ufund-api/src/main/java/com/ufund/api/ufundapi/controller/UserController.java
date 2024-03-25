@@ -54,10 +54,6 @@ public class UserController {
     public ResponseEntity<User> addUser(@RequestBody User user) {
         LOG.info("POST /Users " + user);
         try {
-            User existingUser = userDAO.getUser(user.getId());
-            if (existingUser != null) {
-                return new ResponseEntity<>(HttpStatus.CONFLICT);
-            }
             User createdUser = userDAO.addUser(user);
             if (createdUser == null) {
                 return new ResponseEntity<>(HttpStatus.CONFLICT);
