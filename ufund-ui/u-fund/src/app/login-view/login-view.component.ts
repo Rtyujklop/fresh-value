@@ -30,7 +30,7 @@ export class LoginViewComponent {
         if (users[0].name === "Admin") {
           this.router.navigate(['../needs']);
         } else {
-          this.router.navigate(['../userview']);
+          this.router.navigate(['../user-view']);
         }
         this.messageService.add("successful login");
       } else {
