@@ -1,5 +1,4 @@
-package com.ufund.api.ufundapi;
-//package com.ufund.api.ufundapi.controller;
+package com.ufund.api.ufundapi.controller;
 
 import com.ufund.api.ufundapi.controller.NeedController;
 import com.ufund.api.ufundapi.model.Need;
@@ -46,6 +45,37 @@ class NeedControllerTest {
         verify(needDAO, times(1)).getNeed(id);
     }
 
+    void testGetNeedNotFound() throws IOException 
+    {
+        int id = 5;
+        when (needDAO.getNeed(id)).thenReturn(null);
+
+        ResponseEntity<Need> response = needController.getNeed(id);
+
+        assertEquals(HttpStatus.NOT_FOUND, response);
+    }
+
+    @Test
+    void testGetNeedException() throws IOException
+    {   
+        int id = 1;
+        when(needDAO.getNeed(id)).thenThrow(new IOException());
+
+        ResponseEntity<Need> response = needController.getNeed(id);
+
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+    }
+
+    @Test
+    void testGetNeedsException() throws IOException
+    {
+        when(needDAO.getNeeds()).thenThrow(new IOException());
+
+        ResponseEntity<Need[]> response = needController.getNeeds();
+
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+    }
+
     @Test
     void testGetNeeds() throws IOException {
         // Arrange
@@ -66,6 +96,8 @@ class NeedControllerTest {
         }
         verify(needDAO, times(1)).getNeeds();
     }
+
+    
 }
 
 

@@ -1,14 +1,10 @@
 package com.ufund.api.ufundapi.controller;
-import com.ufund.api.ufundapi.model.Need;
 import com.ufund.api.ufundapi.model.User;
-import com.ufund.api.ufundapi.persistence.NeedDAO;
 import com.ufund.api.ufundapi.persistence.UserDAO;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
@@ -18,7 +14,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.boot.autoconfigure.couchbase.CouchbaseProperties.Io;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -82,10 +77,8 @@ public class userControllerTests {
     { 
         // Setup
         String searchString = "Te";
-        User[] users = new User[2];
+        User[] users = new User[1];
         users[0] = new User(99, "Test", "Password");
-        // When findNeeds is called with the search string, return the two
-        // needs above
         when(mockUserDAO.findUser(searchString)).thenReturn(users);
 
         // Invoke
