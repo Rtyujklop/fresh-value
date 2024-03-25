@@ -21,6 +21,7 @@ export class LoginViewComponent {
   login(username: string, password: string) {
     this.userService.getUser(username).subscribe(users => {
       const foundUser = users[0].username === username && users[0].password === password;
+      console.log(users)
       if (foundUser) {
         this.userService.setName(users[0].username);
         if (users[0].username === "Admin") {
