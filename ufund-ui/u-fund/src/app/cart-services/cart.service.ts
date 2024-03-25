@@ -8,7 +8,11 @@ export class CartService {
   private items: { need: Need; quantity: number }[] = [];
 
   constructor() {
-    this.loadCart();
+    // Load items from local storage when the service is instantiated
+    const storedItems = localStorage.getItem('cartItems');
+    if (storedItems) {
+      this.items = JSON.parse(storedItems);
+    }
   }
 
   addToCart(need: Need) {
@@ -18,7 +22,8 @@ export class CartService {
     } else {
       this.items.push({ need, quantity: 1 });
     }
-    this.saveCart();
+    // Save items to local storage whenever they are updated
+    localStorage.setItem('cartItems', JSON.stringify(this.items));
   }
 
   getNeeds() {
@@ -33,19 +38,13 @@ export class CartService {
         this.items = this.items.filter((i) => i.need.id !== need.id);
       }
     }
-    this.saveCart();
+    // Save items to local storage whenever they are updated
+    localStorage.setItem('cartItems', JSON.stringify(this.items));
   }
 
-  private saveCart() {
-    localStorage.setItem('cart', JSON.stringify(this.items));
-  }
-
-  private loadCart() {
-    const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
-      this.items = JSON.parse(storedCart);
-    } else {
-      this.items = [];
-    }
+  checkout() {
+    this.items = [];
+    // Clear items from local storage when the cart is checked out
+    localStorage.removeItem('cartItems');
   }
 }

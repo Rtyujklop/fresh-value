@@ -5,11 +5,13 @@ import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { NeedDetailComponent } from '../need-detail/need-detail.component';
 import { NeedService } from '../need.service';
 import { MessageService } from '../message.service';
+import { NeedDetailAdminComponent } from '../need-detail-admin/need-detail-admin.component';
 
 @Component({
   selector: 'app-needs',
   standalone: true,
-  imports: [FormsModule, NgFor, NgIf, UpperCasePipe, NeedDetailComponent],
+  imports: [FormsModule, NgFor, NgIf, UpperCasePipe, 
+            NeedDetailComponent, NeedDetailAdminComponent],
   templateUrl: './needs.component.html',
   styleUrl: './needs.component.css'
 })
@@ -57,7 +59,4 @@ export class NeedsComponent implements OnInit{
     this.needs = this.needs.filter(n => n !== need);
     this.needService.deleteNeed(need.id).subscribe();
   }
-
-
-
 }

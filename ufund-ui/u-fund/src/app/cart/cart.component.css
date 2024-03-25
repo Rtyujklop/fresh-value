@@ -8,6 +8,9 @@
   border-radius: 5px;
   padding: 10px;
   background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Styles the h2 elements within the .cart class */
@@ -51,4 +54,30 @@
 /* Styles the button elements within the li elements in the .cart class when they are hovered over */
 .cart ul li button:hover {
   background-color: #ff4500;
+}
+
+.cart button {
+  background-color: #4caf50; /* Green background */
+  border: none; /* Remove border */
+  color: white; /* White text */
+  padding: 10px 16px; /* Some padding */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer; /* Mouse pointer on hover */
+  transition-duration: 0.4s; /* Transition effects */
+  border-radius: 12px; /* Rounded corners */
+  align-items: center;
+}
+
+.cart button:hover {
+  background-color: #45a049; /* Green background on hover */
+}
+
+.checkout-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

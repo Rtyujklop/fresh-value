@@ -1,3 +1,9 @@
+<h2> Admin Page </h2>
+
+<a href="login">
+  <button> Logout </button>
+</a>
+
 <h2>List of Trees</h2>
 <div>
   <label for="need-name">Tree Name: </label>
@@ -15,8 +21,6 @@
   
 </div>
 
-
-
 <ul class="needs">
   <li *ngFor="let need of needs">
     <button
@@ -32,4 +36,6 @@
   (click)="deleteNeed(need)">Delete Tree</button>
   </li>
 </ul>
-<app-need-detail [need]="selectedNeed"></app-need-detail>
+<app-need-detail-admin [need]="selectedNeed"></app-need-detail-admin>
+
+<a href="../user-view/" class="switch-link"> Switch to User view</a>

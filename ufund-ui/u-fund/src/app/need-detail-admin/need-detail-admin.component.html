@@ -1,0 +1,19 @@
+<div *ngIf="need">
+    <h2>{{ need.name }} Tree Details</h2>
+    <div><span>id: </span>{{ need.id }}</div>
+    <div>
+      <label for="need-name">Need name: </label>
+      <input id="need" [(ngModel)]="need.name" placeholder="need" readonly />
+      <br />
+      <label for="need-description">Need description: </label>
+      <input
+        id="need"
+        [(ngModel)]="need.description"
+        placeholder="need"
+        readonly
+      />
+    </div>
+  </div>
+  
+  
+  
