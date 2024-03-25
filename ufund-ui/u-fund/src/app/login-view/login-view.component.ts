@@ -25,7 +25,7 @@ export class LoginViewComponent {
         if (foundUser.name === "Admin") {
           this.router.navigate(['../needs']);
         } else {
-          this.router.navigate(['../userview']);
+          this.router.navigate(['../user-view']);
         }
         this.setLog("successful login");
       } else {
