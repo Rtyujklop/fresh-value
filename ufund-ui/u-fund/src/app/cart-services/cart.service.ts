@@ -7,7 +7,13 @@ import { Need } from '../need';
 export class CartService {
   private items: { need: Need; quantity: number }[] = [];
 
-  constructor() {}
+  constructor() {
+    // Load items from local storage when the service is instantiated
+    const storedItems = localStorage.getItem('cartItems');
+    if (storedItems) {
+      this.items = JSON.parse(storedItems);
+    }
+  }
 
   addToCart(need: Need) {
     const item = this.items.find((item) => item.need.id === need.id);
@@ -16,6 +22,8 @@ export class CartService {
     } else {
       this.items.push({ need, quantity: 1 });
     }
+    // Save items to local storage whenever they are updated
+    localStorage.setItem('cartItems', JSON.stringify(this.items));
   }
 
   getNeeds() {
@@ -30,9 +38,13 @@ export class CartService {
         this.items = this.items.filter((i) => i.need.id !== need.id);
       }
     }
+    // Save items to local storage whenever they are updated
+    localStorage.setItem('cartItems', JSON.stringify(this.items));
   }
 
   checkout() {
     this.items = [];
+    // Clear items from local storage when the cart is checked out
+    localStorage.removeItem('cartItems');
   }
 }
