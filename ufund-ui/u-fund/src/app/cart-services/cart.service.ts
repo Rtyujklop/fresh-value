@@ -31,4 +31,8 @@ export class CartService {
       }
     }
   }
+
+  checkout() {
+    this.items = [];
+  }
 }
