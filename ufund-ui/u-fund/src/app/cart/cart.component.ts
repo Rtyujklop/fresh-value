@@ -16,4 +16,8 @@ export class CartComponent {
   deleteFromCart(need: Need) {
     this.cartService.deleteFromCart(need);
   }
+
+  checkout() {
+    this.cartService.checkout();
+  }
 }
