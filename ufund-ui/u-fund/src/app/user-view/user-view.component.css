@@ -1,0 +1,30 @@
+/* The .needs class styles the overall needs list container */
+.needs {
+    width: 60%;
+    max-height: 500px;
+  }
+  
+  /* Styles the li elements within the .needs class */
+  .needs li {
+    padding: 10px 0;
+    list-style-type: none;
+  }
+  
+  /* Styles the button elements within the li elements in the .needs class */
+  .needs li button {
+    background-color: #464545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1em; /* Make the text on the button larger */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    margin-right: 10px;
+  }
+  
+  /* Styles the button elements within the li elements in the .needs class when they are hovered over */
+  .needs li button:hover {
+    background-color: #ff4500;
+  }
+  
