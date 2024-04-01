@@ -1,7 +1,5 @@
 package com.ufund.api.ufundapi.model;
 
-import java.util.logging.Logger;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -10,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Team Trees
  */
 public class Need {
-    private static final Logger LOG = Logger.getLogger(Need.class.getName());
 
     @JsonProperty("id") private int id;
     @JsonProperty("name") private String name;

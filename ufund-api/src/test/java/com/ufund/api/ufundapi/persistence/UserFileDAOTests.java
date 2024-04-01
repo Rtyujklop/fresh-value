@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ufund.api.ufundapi.model.User;
 
-public class UserFileDAOTests {
+class UserFileDAOTests {
 
     UserFileDAO mockUserFileDAO;
     User[] mockUsers;
@@ -38,7 +38,7 @@ public class UserFileDAOTests {
     }
 
     @Test
-    public void testGetUser()
+    void testGetUser()
     {
         User user = mockUserFileDAO.getUser(2);
 
@@ -46,16 +46,16 @@ public class UserFileDAOTests {
     }
 
     @Test
-    public void testFindUsers()
+    void testFindUsers()
     {   
         User[] users = mockUserFileDAO.findUser("test");
 
-        assertEquals(users.length, 1, "Wrong amount of userss found");
+        assertEquals(1, users.length, "Wrong amount of userss found");
         assertEquals(users[0], mockUsers[0], "Wrong user found");
     }
 
     @Test
-    public void testAddUser()
+    void testAddUser()
     {
         User user = new User(3, "new", "bruno");
 
@@ -67,25 +67,26 @@ public class UserFileDAOTests {
     }
 
     @Test
-    public void testDeleteUser()
+    void testDeleteUser()
     {
         boolean delete = assertDoesNotThrow(() -> mockUserFileDAO.deleteUser(1), "Deletion threw exception");
-        assertEquals(delete, true, "Deletion failed");
-        assertEquals(mockUserFileDAO.users.size(), 1);
+        assertEquals(true, delete, "Deletion failed");
+        assertEquals(1, mockUserFileDAO.users.size());
     }
 
     @Test
-    public void testUserNotFound()
+    void testUserNotFound()
     {
         User user = mockUserFileDAO.getUser(5);
 
-        assertEquals(user, null);
+        assertEquals(null, user);
     }
 
-    public void testDeleteNotFound()
+    @Test
+    void testDeleteNotFound()
     {
         boolean delete = assertDoesNotThrow(() -> mockUserFileDAO.deleteUser(12), "Deletion threw exception");
-        assertEquals(delete, false);
+        assertEquals(false, delete);
         assertEquals(mockUserFileDAO.users.size(), mockUsers.length);
     }
 }

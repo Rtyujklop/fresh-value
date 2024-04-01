@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class UserFileDAO implements UserDAO{
     Map<Integer,User> users;
     private ObjectMapper objectMapper;
-    private static int nextId;
+    private int nextId;
     private String filename;
 
     public UserFileDAO(@Value("${Users.file}") String filename, ObjectMapper objectMapper) throws IOException 
@@ -26,34 +25,34 @@ public class UserFileDAO implements UserDAO{
         load();
     }
 
-    private synchronized static int nextId() {
+    private synchronized int nextId() {
         int id = nextId;
         ++nextId;
         return id;
     }
 
-    private User[] getUserArray() {
-        return getUserArray(null);
+    private User[] getuserArray() {
+        return getuserArray(null);
     }
 
-    private User[] getUserArray(String containsText) { 
-        ArrayList<User> UserArrayList = new ArrayList<>();
+    private User[] getuserArray(String containsText) { 
+        ArrayList<User> userArrayList = new ArrayList<>();
 
         for (User user : users.values()) {
             if (containsText == null || user.getUsername().contains(containsText)) {
-                UserArrayList.add(user);
+                userArrayList.add(user);
             }
         }
 
-        User[] UserArray = new User[UserArrayList.size()];
-        UserArrayList.toArray(UserArray);
-        return UserArray;
+        User[] userArray = new User[userArrayList.size()];
+        userArrayList.toArray(userArray);
+        return userArray;
     }
 
 
     private boolean save() throws IOException {
-        User[] UserArray = getUserArray();
-        objectMapper.writeValue(new File(filename),UserArray);
+        User[] userArray = getuserArray();
+        objectMapper.writeValue(new File(filename),userArray);
         return true;
     }
 
@@ -78,7 +77,7 @@ public class UserFileDAO implements UserDAO{
     @Override
     public User[] findUser(String text) {
         synchronized(users) {
-            return getUserArray(text);
+            return getuserArray(text);
         }
     }
 
