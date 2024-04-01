@@ -84,7 +84,7 @@ class NeedFileDAOTests
     {
         boolean delete = assertDoesNotThrow(() -> needFileDAO.deleteNeed(50), "Deletion threw exception");
         assertEquals(true, delete, "Deletion failed");
-        assertEquals(4, needFileDAO.Needs.size());
+        assertEquals(4, needFileDAO.needs.size());
     }
 
     @Test
@@ -124,7 +124,7 @@ class NeedFileDAOTests
     {
         boolean delete = assertDoesNotThrow(() -> needFileDAO.deleteNeed(12), "Deletion threw exception");
         assertEquals(false, delete);
-        assertEquals(needFileDAO.Needs.size(), fakeNeeds.length);
+        assertEquals(needFileDAO.needs.size(), fakeNeeds.length);
     }
     
 }
