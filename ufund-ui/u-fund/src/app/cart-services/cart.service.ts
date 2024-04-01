@@ -47,4 +47,11 @@ export class CartService {
     // Clear items from local storage when the cart is checked out
     localStorage.removeItem('cartItems');
   }
+
+  getTotalPrice() {
+    return this.items.reduce(
+      (total, item) => total + item.need.cost * item.quantity,
+      0
+    );
+  }
 }
