@@ -26,6 +26,10 @@ export class CartService {
     localStorage.setItem('cartItems', JSON.stringify(this.items));
   }
 
+  getCartCount() {
+    return this.items.reduce((count, item) => count + item.quantity, 0);
+  }
+
   getNeeds() {
     return this.items;
   }

@@ -13,14 +13,14 @@
       readonly
     />
     <br />
-      <label for="need-cost">Need Cost: </label>
-      <input id="need"
-      [(ngModel)]="need.cost"
-        placeholder="Cost"
-        readonly
-      />
+    <label for="need-cost">Need Cost: </label>
+    <input id="need" [(ngModel)]="need.cost" placeholder="Cost" readonly />
   </div>
   <button (click)="addToCart(need)">Add to Cart</button>
+  <div class="cart-icon">
+    <button (click)="navigateToCheckout()">
+      🛒
+      <span class="cart-count">{{ cartService.getCartCount() }}</span>
+    </button>
+  </div>
 </div>
-
-
