@@ -4,9 +4,12 @@
     <li *ngFor="let item of cartService.getNeeds()">
       <h3>{{ item.need.name }}</h3>
       <p>{{ item.need.description }}</p>
+      <p>Price: ${{ item.need.cost }}</p>
       <p>Quantity: {{ item.quantity }}</p>
+      <p>Subtotal: ${{ item.need.cost * item.quantity }}</p>
       <button (click)="deleteFromCart(item.need)">Remove</button>
     </li>
   </ul>
+  <p>Total Cart Price: ${{ cartService.getTotalPrice() }}</p>
   <button (click)="checkout()">Checkout</button>
 </div>

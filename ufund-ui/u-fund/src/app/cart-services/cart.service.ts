@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Need } from '../need';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ import { Need } from '../need';
 export class CartService {
   private items: { need: Need; quantity: number }[] = [];
 
-  constructor() {
+  constructor(private router: Router) {
     // Load items from local storage when the service is instantiated
     const storedItems = localStorage.getItem('cartItems');
     if (storedItems) {
@@ -26,6 +27,10 @@ export class CartService {
     localStorage.setItem('cartItems', JSON.stringify(this.items));
   }
 
+  getCartCount() {
+    return this.items.reduce((count, item) => count + item.quantity, 0);
+  }
+
   getNeeds() {
     return this.items;
   }
@@ -42,9 +47,20 @@ export class CartService {
     localStorage.setItem('cartItems', JSON.stringify(this.items));
   }
 
+  navigateBack() {
+    this.router.navigate(['/user-view']);
+  }
+
   checkout() {
     this.items = [];
     // Clear items from local storage when the cart is checked out
     localStorage.removeItem('cartItems');
+  }
+
+  getTotalPrice() {
+    return this.items.reduce(
+      (total, item) => total + item.need.cost * item.quantity,
+      0
+    );
   }
 }
