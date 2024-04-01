@@ -1,7 +1,7 @@
 .cart-icon {
   position: fixed;
   top: 40px;
-  right: 20px;
+  right: 25px;
   font-size: 10px;
 }
 
@@ -11,7 +11,19 @@
   right: -10px;
   background: red;
   color: white;
-  border-radius: 50%;
+  border-radius: 45%;
   padding: 5px;
   font-size: 12px;
+}
+
+.cart-button {
+  font-size: 40px;
+  background-color: white;
+  border: none;
+  border-radius: 15%;
+}
+
+.cart-button:hover {
+  background-color: #d1d1d1; /* Change the background color on hover */
+  cursor: pointer;
 }

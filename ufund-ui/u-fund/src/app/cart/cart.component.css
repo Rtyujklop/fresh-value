@@ -1,9 +1,7 @@
 /* The .cart class styles the overall cart container */
 .cart {
   width: 20%;
-  position: absolute;
-  top: 0; /* Positions the cart at the top of the parent container */
-  right: 0; /* Positions the cart at the right of the parent container */
+  position: relative;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;

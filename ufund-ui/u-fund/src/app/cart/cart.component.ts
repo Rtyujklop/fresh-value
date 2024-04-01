@@ -20,5 +20,6 @@ export class CartComponent {
   checkout() {
     this.cartService.checkout();
     window.alert('Thank you for your Donation!');
+    this.cartService.navigateBack();
   }
 }

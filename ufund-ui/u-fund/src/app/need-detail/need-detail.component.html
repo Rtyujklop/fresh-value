@@ -18,7 +18,7 @@
   </div>
   <button (click)="addToCart(need)">Add to Cart</button>
   <div class="cart-icon">
-    <button (click)="navigateToCheckout()">
+    <button class="cart-button" (click)="navigateToCheckout()">
       🛒
       <span class="cart-count">{{ cartService.getCartCount() }}</span>
     </button>

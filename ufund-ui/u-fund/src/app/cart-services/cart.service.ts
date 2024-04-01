@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Need } from '../need';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ import { Need } from '../need';
 export class CartService {
   private items: { need: Need; quantity: number }[] = [];
 
-  constructor() {
+  constructor(private router: Router) {
     // Load items from local storage when the service is instantiated
     const storedItems = localStorage.getItem('cartItems');
     if (storedItems) {
@@ -44,6 +45,10 @@ export class CartService {
     }
     // Save items to local storage whenever they are updated
     localStorage.setItem('cartItems', JSON.stringify(this.items));
+  }
+
+  navigateBack() {
+    this.router.navigate(['/user-view']);
   }
 
   checkout() {
