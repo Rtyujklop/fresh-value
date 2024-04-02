@@ -63,4 +63,16 @@ export class CartService {
       0
     );
   }
+
+  getTotalItems() {
+    return this.items.reduce((total, item) => total + item.quantity, 0);
+  }
+
+  updateCart(item: { need: Need; quantity: number }) {
+    const index = this.items.findIndex((i) => i.need.id === item.need.id);
+    if (index !== -1) {
+      this.items[index] = item;
+    }
+    localStorage.setItem('cartItems', JSON.stringify(this.items));
+  }
 }

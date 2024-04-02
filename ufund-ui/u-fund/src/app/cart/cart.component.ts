@@ -13,13 +13,23 @@ import { CartService } from '../cart-services/cart.service';
 export class CartComponent {
   cartService = inject(CartService);
 
-  deleteFromCart(need: Need) {
-    this.cartService.deleteFromCart(need);
-  }
-
   checkout() {
     this.cartService.checkout();
     window.alert('Thank you for your Donation!');
     this.cartService.navigateBack();
+  }
+
+  increaseQuantity(item: { need: Need; quantity: number }) {
+    item.quantity++;
+    this.cartService.updateCart(item);
+  }
+
+  decreaseQuantity(item: { need: Need; quantity: number }) {
+    if (item.quantity > 1) {
+      item.quantity--;
+      this.cartService.updateCart(item);
+    } else {
+      this.cartService.deleteFromCart(item.need);
+    }
   }
 }
