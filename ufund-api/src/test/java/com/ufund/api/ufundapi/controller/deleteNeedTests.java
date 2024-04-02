@@ -16,7 +16,7 @@ import com.ufund.api.ufundapi.model.Need;
 import com.ufund.api.ufundapi.persistence.NeedDAO;
 
 @Tag("Controller-tier")
-public class deleteNeedTests {
+class DeleteNeedTests {
     private NeedController needController;
     private NeedDAO mockNeedDAO;
         
@@ -27,7 +27,7 @@ public class deleteNeedTests {
     }
 
     @Test
-    public void testDeleteNeed() throws IOException {
+    void testDeleteNeed() throws IOException {
         // Setup
         int NeedId = 1;
         Need need = new Need(NeedId, "Pine Tree", 100, "A pine tree");
@@ -42,7 +42,7 @@ public class deleteNeedTests {
     }
 
     @Test
-    public void testDeleteNeedNotFound() throws IOException { // 
+    void testDeleteNeedNotFound() throws IOException { // 
         // Setup
         int needId = 1;
         // when deleteNeed is called return false, simulating failed deletion
@@ -56,7 +56,7 @@ public class deleteNeedTests {
     }
 
     @Test
-    public void testDeleteNeedHandleException() throws IOException {
+    void testDeleteNeedHandleException() throws IOException {
         // Setup
         int needId = 1;
         Need need = new Need(needId, "Pine Tree", 100, "A pine tree");

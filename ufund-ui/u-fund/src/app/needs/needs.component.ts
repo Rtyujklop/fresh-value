@@ -1,12 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Need } from '../need';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { NeedDetailComponent } from '../need-detail/need-detail.component';
 import { NeedService } from '../need.service';
 import { MessageService } from '../message.service';
 import { NeedDetailAdminComponent } from '../need-detail-admin/need-detail-admin.component';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-needs',
@@ -46,7 +45,7 @@ export class NeedsComponent implements OnInit{
 
   addNeed(name: string, costNumber: string, description: string): void {
     
-    const cost: Number = parseInt(costNumber);
+    const cost: number = parseInt(costNumber);
     name = name.trim();
     if (!name) { return; }
     this.needService.addNeed({ name, cost, description } as Need)

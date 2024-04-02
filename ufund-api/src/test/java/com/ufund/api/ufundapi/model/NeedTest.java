@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 
 
 @Tag("Model-tier")
-public class NeedTest {
+class NeedTest {
 
     @Test
-    public void testCtor() {
+    void testCtor() {
         // Setup
         int id = 99;
         String name = "White Spruce";
@@ -33,7 +33,7 @@ public class NeedTest {
     }
 
     @Test
-    public void testName() {
+    void testName() {
         // Setup
         int id = 99;
         String name = "White Spruce";
@@ -55,7 +55,7 @@ public class NeedTest {
     }
 
     @Test 
-    public void testToString() {
+    void testToString() {
         // Setup
         int id = 99;
         String name = "White Spruce";

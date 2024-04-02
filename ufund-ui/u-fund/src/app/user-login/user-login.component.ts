@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
 @Component({
   selector: 'app-user-login',
   standalone: true,
@@ -11,16 +14,18 @@ import { AuthService } from '../auth.service';
 export class UserLoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
-  login(credentials: any): void {
-    this.authService.login(credentials).subscribe(
-      () => {
-        // Redirect to the 'needs' route upon successful login
-        this.router.navigate(['/needs']);
-      },
-      (error) => {
-        // Handle login error if needed
-        console.error('Login error:', error);
-      }
+  login(credentials: any): Observable<any> {
+    return this.authService.login(credentials).pipe(
+      tap({
+        next: () => {
+          // Redirect to the 'needs' route upon successful login
+          this.router.navigate(['/needs']);
+        },
+        error: (error) => {
+          // Handle login error if needed
+          console.error('Login error:', error);
+        }
+      })
     );
   }
 }

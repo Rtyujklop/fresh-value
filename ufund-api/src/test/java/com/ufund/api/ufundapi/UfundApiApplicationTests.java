@@ -1,22 +1,23 @@
 package com.ufund.api.ufundapi;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.test.context.TestPropertySource;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@TestPropertySource(properties = {"management.port=0"})
 class UfundApiApplicationTests {
 
-	@MockBean
-	private RestTemplate restTemplate;
+    @LocalServerPort
+    private int port;
 
-	@Test
-	void contextLoads() {
-		// Verify that the application context loads successfully
-		assertThat(SpringApplication.run(UfundApiApplication.class)).isNotNull();
-	}
+    @Test
+    void contextLoads() {
+        assertTrue(port > 0);
+    }
+
 }
