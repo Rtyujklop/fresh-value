@@ -55,6 +55,7 @@ class NeedFileDAOTests
         Need need = needFileDAO.getNeed(51);
 
         assertEquals(need, fakeNeeds[1]);
+        assertNotNull(fakeNeeds[1]);
     }
 
     @Test
@@ -76,6 +77,7 @@ class NeedFileDAOTests
         assertNotNull(result);
 
         Need check = needFileDAO.getNeed(55);
+        assertNotNull(check);
         assertEquals(check.getId(), need.getId(), "Need does not match");
     }
 
