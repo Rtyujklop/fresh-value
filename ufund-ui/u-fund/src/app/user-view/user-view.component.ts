@@ -40,6 +40,11 @@ export class UserViewComponent {
   getNeeds(): void 
   {
     this.needService.getNeeds()
-      .subscribe(needs => this.needs = needs)
+      .subscribe(needs => this.needs = needs);
+  }
+
+  costFilter(): void
+  {
+    this.needs.sort((a,b) => a.cost - b.cost);
   }
 }
