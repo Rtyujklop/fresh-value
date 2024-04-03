@@ -52,7 +52,7 @@
 
 .cart-summary {
   font-weight: bold; /* Make the text bold */
-  color: rgb(101, 101, 101); /* Change the text color to light grey */
+  color: rgb(0, 137, 39); /* Change the text color to light grey */
   font-size: 24px;
 }
 
@@ -85,16 +85,17 @@
 .item-quantity button {
   background-color: transparent;
   color: rgb(0, 0, 0);
-  border: none; /* No border */
-  border-radius: 50%; /* Rounded corners */
-  width: 25px; /* Width */
-  height: 25px; /* Height */
-  font-size: 16px; /* Font size */
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
   line-height: 1; /* Align the '+' and '-' vertically */
-  padding: 0; /* No padding */
-  display: flex; /* Use flexbox for centering */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .item-quantity button:hover {
