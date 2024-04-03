@@ -1,6 +1,5 @@
 package com.ufund.api.ufundapi.controller;
 
-import com.ufund.api.ufundapi.controller.NeedController;
 import com.ufund.api.ufundapi.model.Need;
 import com.ufund.api.ufundapi.persistence.NeedDAO;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,7 +32,7 @@ class NeedControllerTest {
     void testGetNeed() throws IOException {
         // Arrange
         int id = 1;
-        Need expectedNeed = new Need(id, "Test Need", 100, "Test description");
+        Need expectedNeed = new Need(id, "Test Need", 100, 100, "Test description");
         when(needDAO.getNeed(id)).thenReturn(expectedNeed);
 
         // Act
@@ -80,8 +79,8 @@ class NeedControllerTest {
     void testGetNeeds() throws IOException {
         // Arrange
         Need[] expectedNeeds = {
-                new Need(1, "Need 1", 100, "Description 1"),
-                new Need(2, "Need 2", 200, "Description 2")
+                new Need(1, "Need 1", 100, 100,"Description 1"),
+                new Need(2, "Need 2", 200, 100, "Description 2")
         };
         when(needDAO.getNeeds()).thenReturn(expectedNeeds);
 

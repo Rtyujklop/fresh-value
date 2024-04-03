@@ -30,7 +30,7 @@ public class createNeedTests {
     @Test
     public void testCreateNeed() throws IOException {
         // Setup
-        Need testedNeed = new Need(1,"Pine Tree", 100, "A pine tree");
+        Need testedNeed = new Need(1,"Pine Tree", 100, 100, "A pine tree");
         when(mockNeedDAO.createNeed(testedNeed)).thenReturn(testedNeed);
 
         // Invoke
@@ -44,7 +44,7 @@ public class createNeedTests {
     @Test
     public void testCreateNeedFailed() throws IOException { 
         // Setup
-        Need testedNeed = new Need(1,"Pine Tree", 100, "A pine tree");
+        Need testedNeed = new Need(1,"Pine Tree", 100, 100, "A pine tree");
         // when createNeed is called, return false simulating failed
         when(mockNeedDAO.createNeed(testedNeed)).thenReturn(null);
 
@@ -58,7 +58,7 @@ public class createNeedTests {
     @Test
     public void testCreateNeedHandleException() throws IOException {   
         // Setup
-        Need testedNeed = new Need(1,"Pine Tree", 100, "A pine tree");
+        Need testedNeed = new Need(1,"Pine Tree", 100, 100, "A pine tree");
 
         // When createNeed is called on the Mock Need DAO, throw an IOException
         doThrow(new IOException()).when(mockNeedDAO).createNeed(testedNeed);

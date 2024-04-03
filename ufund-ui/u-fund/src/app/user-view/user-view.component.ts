@@ -43,8 +43,13 @@ export class UserViewComponent {
       .subscribe(needs => this.needs = needs);
   }
 
-  costFilter(): void
+  costFilterAsc(): void
   {
     this.needs.sort((a,b) => a.cost - b.cost);
+  }
+
+  costFilterDec(): void
+  {
+    this.needs.sort((a,b) => b.cost - a.cost);
   }
 }
