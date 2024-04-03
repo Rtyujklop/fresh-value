@@ -67,7 +67,7 @@ export class NeedsComponent implements OnInit{
     this.needs.sort((a,b) => a.cost - b.cost);
   }
 
-  costFilterDec(): void
+  costFilterDes(): void
   {
     this.needs.sort((a,b) => b.cost - a.cost);
   }
