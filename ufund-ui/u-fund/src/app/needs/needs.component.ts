@@ -71,5 +71,15 @@ export class NeedsComponent implements OnInit{
   {
     this.needs.sort((a,b) => b.cost - a.cost);
   }
+
+  ageFilterAsc(): void 
+  {
+    this.needs.sort((a,b) => a.age - b.age);
+  }
+
+  ageFilterDes(): void
+  {
+    this.needs.sort((a,b) => b.age - a.age);
+  }
   
 }
