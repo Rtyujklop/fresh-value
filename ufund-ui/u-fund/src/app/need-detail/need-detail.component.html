@@ -8,15 +8,22 @@
     <input
       id="need"
       [(ngModel)]="need.description"
-      placeholder="need"
+      placeholder="Need"
       readonly
     />
     <br />
       <label for="need-cost">Need Cost: </label>
       <input id="need"
       [(ngModel)]="need.cost"
-        placeholder="Cost"
-        readonly
+      placeholder="Cost"
+      readonly
+      />
+    <br>
+      <label for="need-age">Need Age: </label>
+      <input id="need"
+      [(ngModel)]="need.age"
+      placeholder="Age"
+      readonly
       />
   </div>
   <button (click)="addToCart(need)">Add to Cart</button>
