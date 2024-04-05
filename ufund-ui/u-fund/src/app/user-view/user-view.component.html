@@ -3,22 +3,21 @@
 </a>
 
 <h2>List of Trees</h2>
-<ul class="needs">
-  <li *ngFor="let need of needs">
-    <button
-      [class.selected]="need === selectedNeed"
-      type="button"
-      (click)="onSelect(need)"
-    >
-      <span class="name">{{ need.name }}</span> - $<span class="cost">{{
-        need.cost
-      }}</span>
-    </button>
-  </li>
-</ul>
-<app-need-detail [need]="selectedNeed"></app-need-detail>
-
-
-
+<div class = "container">
+  <ul class="needs">
+    <li *ngFor="let need of needs">
+      <button
+        [class.selected]="need === selectedNeed"
+        type="button"
+        (click)="onSelect(need)"
+      >
+        <span class="name">{{ need.name }}</span> - $<span class="cost">{{
+          need.cost
+        }}</span>
+      </button>
+    </li>
+  </ul>
+  <app-need-detail [need]="selectedNeed"></app-need-detail>  
+</div>
 
 <app-cart></app-cart>
