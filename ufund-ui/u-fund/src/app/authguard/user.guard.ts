@@ -7,20 +7,14 @@ export const userGuard: CanActivateFn = (route, state) => {
 
   const localData = localStorage.getItem('token');
   
-  if(localData == 'user-token')
+  if(localData == 'user-token' || localData == 'admin-token')
   {
     return true;
   }
-  else if (localData == undefined)
+  else
   {
     alert("You do not have permission to access this page.")
     router.navigate(['/login']);
     return false;
-  }
-  else 
-  {
-    /*alert("You do not have permission to access this page.")
-    router.navigate(['/needs']);*/
-    return true;
   }
 };

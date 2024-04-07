@@ -1,9 +1,10 @@
 import { CanActivateChildFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
-
+import { Location } from '@angular/common';
 
 export const checkoutGuard: CanActivateChildFn = (childRoute, state) => {
   const router = inject(Router);
+  const location = inject(Location);
 
   const localData = localStorage.getItem('token');
   
@@ -20,7 +21,7 @@ export const checkoutGuard: CanActivateChildFn = (childRoute, state) => {
   else 
   {
     alert("You do not have permission to access this page.")
-    router.navigate(['/needs']);
+    location.back();
     return false;
   }
 };
