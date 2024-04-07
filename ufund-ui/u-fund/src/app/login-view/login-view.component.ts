@@ -31,7 +31,10 @@ export class LoginViewComponent {
           //this.userService.setName(users[0].username);
           if (users[0].username === "Admin") {
             this.router.navigate(['../needs']);
+            localStorage.setItem('token', 'test-token');
           } else {
+            debugger;
+            localStorage.setItem('token', 'test-token');
             this.router.navigate(['../user-view']);
           }
           alert("Successful login");
