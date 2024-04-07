@@ -1,5 +1,5 @@
 <a href="login">
-  <button class="logout">Logout</button>
+  <button class="logout" (click)="deleteToken()">Logout</button>
 </a>
 
 <h2>List of Trees</h2>
@@ -26,3 +26,7 @@
   </li>
 </ul>
 <app-need-detail [need]="selectedNeed"></app-need-detail>
+
+<div *ngIf="isUser() == false">
+  <a href="../needs" class="switch-link"> Switch to Admin View</a>
+</div>
