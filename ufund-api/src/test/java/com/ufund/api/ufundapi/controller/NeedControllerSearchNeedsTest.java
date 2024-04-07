@@ -47,10 +47,12 @@ public class NeedControllerSearchNeedsTest {
         needs[0] = new Need(99, 
                             "White Spruce", 
                             25, 
+                            100,
                             "straight trunk; long, stout branches form broad conical head.");
         needs[1] = new Need(100,
                             "Norway Spruce",
                             26,
+                            100,
                             "The bark of a young tree is thin and thickens into gray-brown" +
                             "flaky scales with maturity. It has four-sided needles that are about 1 inch long.");
         // When findNeeds is called with the search string, return the two

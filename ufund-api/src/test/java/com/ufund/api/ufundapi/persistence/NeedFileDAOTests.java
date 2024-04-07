@@ -29,11 +29,11 @@ public class NeedFileDAOTests
         mockObjectMapper = mock(ObjectMapper.class);
         
         fakeNeeds = new Need[5];
-        fakeNeeds[0] = new Need(50, "Birch Tree", 100, "This is a birch tree");
-        fakeNeeds[1] = new Need(51, "Oakley", 20, "This is not a tree");
-        fakeNeeds[2] = new Need(52, "Oak Tree", 67, "This is an Oak tree");
-        fakeNeeds[3] = new Need(53, "Sycamore Tree", 120, "This is a Sycamore tree");
-        fakeNeeds[4] = new Need(54, "Willow Tree", 150, "This is a willow tree");
+        fakeNeeds[0] = new Need(50, "Birch Tree", 100, 100, "This is a birch tree");
+        fakeNeeds[1] = new Need(51, "Oakley", 20, 50, "This is not a tree");
+        fakeNeeds[2] = new Need(52, "Oak Tree", 67, 100, "This is an Oak tree");
+        fakeNeeds[3] = new Need(53, "Sycamore Tree", 120, 52, "This is a Sycamore tree");
+        fakeNeeds[4] = new Need(54, "Willow Tree", 150, 200, "This is a willow tree");
 
         when(mockObjectMapper
             .readValue(new File("example.txt"), Need[].class))
@@ -70,7 +70,7 @@ public class NeedFileDAOTests
     @Test
     public void testCreateNeed()
     {
-        Need need = new Need(55, "Olive Tree", 104, "This is an olive tree");
+        Need need = new Need(55, "Olive Tree", 104, 100, "This is an olive tree");
 
         Need result = assertDoesNotThrow(() -> needFileDAO.createNeed(need), "Creating need threw exception");
         assertNotNull(result);
@@ -90,7 +90,7 @@ public class NeedFileDAOTests
     @Test
     public void testUpdateNeed()
     {
-        Need need = new Need(52, "Olive Tree", 104, "This is an olive tree");
+        Need need = new Need(52, "Olive Tree", 104, 100, "This is an olive tree");
 
         Need update = assertDoesNotThrow(() -> needFileDAO.updateNeed(need), "Update threw exception");
 
@@ -110,7 +110,7 @@ public class NeedFileDAOTests
 
     public void testUpdateNotFound()
     {
-        Need need = new Need(12, "Olive Tree", 104, "This is an olive tree");
+        Need need = new Need(12, "Olive Tree", 104, 100, "This is an olive tree");
 
         Need update = assertDoesNotThrow(() -> needFileDAO.updateNeed(need), "Update threw exception");
 

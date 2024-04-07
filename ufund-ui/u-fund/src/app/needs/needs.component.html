@@ -15,14 +15,30 @@
   <label for="need-description">Tree Description: </label>
   <input id="need-description" #needDescription/>
   <br>
-  <button type="button" class="add-button" (click)="addNeed(needName.value, needCost.value, needDescription.value); needName.value=''; needCost.value=''; needDescription.value=''">
+  <label for="need-age">Need Age: </label>
+  <input id="need-age" type="number" #needAge/>
+  <br>
+  <button type="button" class="add-button" (click)="addNeed(needName.value, needCost.value, needDescription.value, needAge.value); needName.value=''; needCost.value=''; needDescription.value=''; needAge.value=''">
     Add Need
   </button>
   
 </div>
 
+<b>
+  <h3>Filter by...</h3>
+  <select id="filter">
+    <option>Filter</option>
+    <option (click)="costFilterAsc()">Cost (Ascending)</option>
+    <option (click)="costFilterDes()">Cost (Descending)</option>
+    <option (click)="ageFilterAsc()">Age (Ascending)</option>
+    <option (click)="ageFilterDes()">Age (Descending)</option>
+  </select>
+  <input type="text" placeholder="Enter name to filter" [(ngModel)]="nameFilterValue" (input)="nameFilter()">
+</b>
+
 <ul class="needs">
   <li *ngFor="let need of needs">
+
     <button
       [class.selected]="need === selectedNeed"
       type="button"

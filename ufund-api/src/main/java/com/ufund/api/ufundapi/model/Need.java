@@ -15,6 +15,7 @@ public class Need {
     @JsonProperty("id") private int id;
     @JsonProperty("name") private String name;
     @JsonProperty("cost") private int cost;
+    @JsonProperty("age") private int age;
     @JsonProperty("description") private String description;
 
     static final String STRING_FORMAT = "Need [id=%d, name=%s, cost=%d, description=%s]";
@@ -26,11 +27,12 @@ public class Need {
      * @param description description of need
 
     */
-    public Need(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("cost") int cost, @JsonProperty("description") String description)
+    public Need(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("cost") int cost, @JsonProperty("age") int age, @JsonProperty("description") String description)
     {
         this.id = id;
         this.name = name;
         this.cost = cost;
+        this.age = age;
         this.description = description;
     }
 
@@ -63,6 +65,8 @@ public class Need {
      * @return The description of the need
      */
     public String getDescription() {return description; }
+
+    public int getAge() {return age;}
 
     /**
      * {@inheritDoc}

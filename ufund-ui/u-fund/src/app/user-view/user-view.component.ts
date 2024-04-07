@@ -17,6 +17,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './user-view.component.css'
 })
 export class UserViewComponent {
+  nameFilterValue: string = '';
   constructor(private messageService: MessageService)
   {
     
@@ -40,6 +41,37 @@ export class UserViewComponent {
   getNeeds(): void 
   {
     this.needService.getNeeds()
-      .subscribe(needs => this.needs = needs)
+      .subscribe(needs => this.needs = needs);
+  }
+
+  costFilterAsc(): void
+  {
+    this.needs.sort((a,b) => a.cost - b.cost);
+  }
+
+  costFilterDes(): void
+  {
+    this.needs.sort((a,b) => b.cost - a.cost);
+  }
+
+  ageFilterAsc(): void 
+  {
+    this.needs.sort((a,b) => a.age - b.age);
+  }
+
+  ageFilterDes(): void
+  {
+    this.needs.sort((a,b) => b.age - a.age);
+  }
+  nameFilter(): void
+  {
+    const queue = this.nameFilterValue.trim().toLowerCase();
+    if (!queue) {
+      this.getNeeds(); // Reset to original list if queue is empty
+      return;
+    }
+    this.needs = this.needs.filter(need =>
+      need.name.toLowerCase().includes(queue)
+    );
   }
 }

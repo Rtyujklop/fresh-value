@@ -1,6 +1,5 @@
 <div *ngIf="need">
   <h2>Tree Details</h2>
-  <div><span>id: </span>{{ need.id }}</div>
   <div>
     <label for="need-name">Need Name: </label>
     <input id="need" [(ngModel)]="need.name" placeholder="need" readonly />
@@ -9,10 +8,23 @@
     <input
       id="need"
       [(ngModel)]="need.description"
-      placeholder="need"
+      placeholder="Need"
       readonly
     />
     <br />
+     <label for="need-cost">Need Cost: </label>
+     <input id="need"
+     [(ngModel)]="need.cost"
+     placeholder="Cost"
+     readonly
+      />
+    <br>
+     <label for="need-age">Need Age: </label>
+     <input id="need"
+     [(ngModel)]="need.age"
+     placeholder="Age"
+     readonly
+     />
     <label for="need-cost">Need Cost: </label>
     <input id="need" [(ngModel)]="need.cost" placeholder="Cost" readonly />
   </div>

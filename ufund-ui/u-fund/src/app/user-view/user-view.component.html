@@ -3,6 +3,15 @@
 </a>
 
 <h2>List of Trees</h2>
+<h3>Filter by...</h3>
+  <select id="filter">
+    <option>Filter</option>
+    <option (click)="costFilterAsc()">Cost (Ascending)</option>
+    <option (click)="costFilterDes()">Cost (Descending)</option>
+    <option (click)="ageFilterAsc()">Age (Ascending)</option>
+    <option (click)="ageFilterDes()">Age (Descending)</option>
+  </select>
+  <input type="text" placeholder="Enter name to filter" [(ngModel)]="nameFilterValue" (input)="nameFilter()">
 <ul class="needs">
   <li *ngFor="let need of needs">
     <button
