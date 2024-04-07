@@ -6,6 +6,7 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { CartComponent } from './cart/cart.component';
 import { userGuard } from './authguard/user.guard';
 import { adminGuard } from './authguard/admin.guard';
+import { checkoutGuard } from './authguard/checkout.guard';
 
 export const routes: Routes = [
   { path: 'needs', component: NeedsComponent, canActivate: [adminGuard]},
@@ -25,5 +26,5 @@ export const routes: Routes = [
     path: 'user-view', component: UserViewComponent, canActivate: [userGuard]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'user-view/checkout', component: CartComponent, canActivate: [userGuard]}
+  { path: 'user-view/checkout', component: CartComponent, canActivate: [checkoutGuard]}
 ];

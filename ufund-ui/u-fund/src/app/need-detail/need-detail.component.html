@@ -25,11 +25,13 @@
      placeholder="Age"
      readonly
      />
-  <button (click)="addToCart(need)">Add to Cart</button>
-  <div class="cart-icon">
-    <button class="cart-button" (click)="navigateToCheckout()">
-      🛒
-      <span class="cart-count">{{ cartService.getCartCount() }}</span>
-    </button>
+    <div *ngIf="isUser() == true">
+      <button (click)="addToCart(need)">Add to Cart</button>
+      <div class="cart-icon">
+        <button class="cart-button" (click)="navigateToCheckout()">
+          🛒
+          <span class="cart-count">{{ cartService.getCartCount() }}</span>
+        </button>
+    </div>
   </div>
 </div>

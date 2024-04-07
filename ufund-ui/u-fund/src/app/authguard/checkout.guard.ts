@@ -1,8 +1,8 @@
-import { CanActivateFn, Router } from '@angular/router';
+import { CanActivateChildFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
 
-export const userGuard: CanActivateFn = (route, state) => {
-  
+
+export const checkoutGuard: CanActivateChildFn = (childRoute, state) => {
   const router = inject(Router);
 
   const localData = localStorage.getItem('token');
@@ -19,8 +19,8 @@ export const userGuard: CanActivateFn = (route, state) => {
   }
   else 
   {
-    /*alert("You do not have permission to access this page.")
-    router.navigate(['/needs']);*/
-    return true;
+    alert("You do not have permission to access this page.")
+    router.navigate(['/needs']);
+    return false;
   }
 };

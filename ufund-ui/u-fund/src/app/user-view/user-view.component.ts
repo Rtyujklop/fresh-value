@@ -75,6 +75,18 @@ export class UserViewComponent {
       need.name.toLowerCase().includes(queue)
     );
   }
+  
+  isUser(): Boolean
+  {
+    if (localStorage.getItem('token') == 'user-token')
+    {
+      return true;
+    }
+    else 
+    {
+      return false;
+    }
+  }
 
   deleteToken(): void 
   {

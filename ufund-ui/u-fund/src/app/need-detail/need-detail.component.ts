@@ -30,4 +30,16 @@ export class NeedDetailComponent {
   navigateToCheckout() {
     this.router.navigate(['/user-view/checkout']);
   }
+
+  isUser(): Boolean
+  {
+    if (localStorage.getItem('token') == 'user-token')
+    {
+      return true;
+    }
+    else 
+    {
+      return false;
+    }
+  }
 }
