@@ -4,10 +4,11 @@ import { LoginViewComponent } from './login-view/login-view.component';
 import { FormsModule } from '@angular/forms';
 import { UserViewComponent } from './user-view/user-view.component';
 import { CartComponent } from './cart/cart.component';
-import { authguardGuard } from './authguard.guard';
+import { userGuard } from './authguard/user.guard';
+import { adminGuard } from './authguard/admin.guard';
 
 export const routes: Routes = [
-  { path: 'needs', component: NeedsComponent, canActivate: [authguardGuard]},
+  { path: 'needs', component: NeedsComponent, canActivate: [adminGuard]},
   { path: 'login', component: LoginViewComponent,
     children: 
     [
@@ -21,8 +22,8 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'user-view', component: UserViewComponent, canActivate: [authguardGuard]
+    path: 'user-view', component: UserViewComponent, canActivate: [userGuard]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'user-view/checkout', component: CartComponent, canActivate: [authguardGuard]}
+  { path: 'user-view/checkout', component: CartComponent, canActivate: [userGuard]}
 ];

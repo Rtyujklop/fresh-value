@@ -81,7 +81,7 @@ export class NeedsComponent implements OnInit{
   {
     this.needs.sort((a,b) => b.age - a.age);
   }
-  
+
   nameFilter(): void
   {
     const queue = this.nameFilterValue.trim().toLowerCase();
@@ -92,5 +92,10 @@ export class NeedsComponent implements OnInit{
     this.needs = this.needs.filter(need =>
       need.name.toLowerCase().includes(queue)
     );
+  }
+
+  deleteToken(): void 
+  {
+    localStorage.removeItem('token');
   }
 }

@@ -22,25 +22,28 @@ export class LoginViewComponent {
     this.userService.getUser(username).subscribe(users => {
       if(users[0] === undefined)
       {
-        alert("Incorrect username or password.")
+        alert("Incorrect username or password. Please try again.");
       }
       else
       {
         const foundUser = users[0].username === username && users[0].password === password;
         if (foundUser) {
-          if (users[0].username === "Admin") {
+          if (users[0].username === "Admin") 
+          {
             this.router.navigate(['../needs']);
-            localStorage.setItem('token', 'test-token');
-          } else {
-            debugger;
-            localStorage.setItem('token', 'test-token');
+            localStorage.setItem('token', 'admin-token');
+          } else 
+          {
+            localStorage.setItem('token', 'user-token');
             this.router.navigate(['../user-view']);
           }
-          alert("Successful login");
-        } else{
-          alert("Invalid username or password");
+          alert("Successful login!");
+        } else
+        {
+          alert("Invalid username or password. Please try again.");
         }
       }
     });
   }
 }
+0
