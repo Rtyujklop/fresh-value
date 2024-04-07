@@ -62,7 +62,6 @@ app-need-detail {
   margin-top: 16px; /* Optional margin between boxes */
 }
 
-
 /* Media query for screens narrower than 1065px */
 @media (max-width: 1065px) {
   .container {
@@ -77,4 +76,8 @@ app-need-detail {
   app-need-detail {
     margin-top: 0; /* Remove margin when stacked */
   }
+}
+
+.cartBuffer {
+  flex: 1; 
 }
