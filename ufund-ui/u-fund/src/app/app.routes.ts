@@ -16,12 +16,13 @@ export const routes: Routes = [
       },
       {
         path: 'needs', component: NeedsComponent
-      }
+      },
+      { path: 'user-view/checkout', component: CartComponent }
     ]
   },
   {
     path: 'user-view', component: UserViewComponent, canActivate: [authguardGuard]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'user-view/checkout', component: CartComponent },
+  { path: 'user-view/checkout', component: CartComponent, canActivate: [authguardGuard]}
 ];
