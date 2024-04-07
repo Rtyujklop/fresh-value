@@ -83,13 +83,13 @@ export class NeedsComponent implements OnInit{
   }
   nameFilter(): void
   {
-    const inputValue = (document.getElementById('filter') as HTMLInputElement).value.trim();
-  if (!inputValue) {
-    this.getNeeds(); // Reset to original list if input is empty
-    return;
-  }
-  this.needs = this.needs.filter(need =>
-    need.name.toLowerCase().includes(inputValue.toLowerCase())
-  );
+    const queue = this.nameFilterValue.trim().toLowerCase();
+    if (!queue) {
+      this.getNeeds(); // Reset to original list if queue is empty
+      return;
+    }
+    this.needs = this.needs.filter(need =>
+      need.name.toLowerCase().includes(queue)
+    );
   }
 }
