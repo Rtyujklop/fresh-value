@@ -15,14 +15,19 @@ export class UserService{
         private http: HttpClient,
         private messageService: MessageService) { }
 
-    setName(name:string | null) {
+    /*setName(name:string | null) {
         if (name == null) {
             localStorage.setItem("user", "");
         }
         else {
             localStorage.setItem("user", String(name));
         }
+    }*/
+
+    httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
+
 
     getName() {
         return localStorage.getItem("user");
@@ -67,10 +72,7 @@ export class UserService{
     //     ));
     // }
 
-    httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    }
-
+   
     private log(message: string) {
         this.messageService.add(`UserService: ${message}`);
     }
