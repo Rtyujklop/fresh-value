@@ -15,15 +15,6 @@ export class UserService{
         private http: HttpClient,
         private messageService: MessageService) { }
 
-    /*setName(name:string | null) {
-        if (name == null) {
-            localStorage.setItem("user", "");
-        }
-        else {
-            localStorage.setItem("user", String(name));
-        }
-    }*/
-
     httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }

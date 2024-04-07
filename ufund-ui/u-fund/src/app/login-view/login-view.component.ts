@@ -28,7 +28,6 @@ export class LoginViewComponent {
       {
         const foundUser = users[0].username === username && users[0].password === password;
         if (foundUser) {
-          //this.userService.setName(users[0].username);
           if (users[0].username === "Admin") {
             this.router.navigate(['../needs']);
             localStorage.setItem('token', 'test-token');

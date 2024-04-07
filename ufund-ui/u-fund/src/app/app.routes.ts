@@ -12,10 +12,10 @@ export const routes: Routes = [
     children: 
     [
       {
-        path: 'user-view', component: UserViewComponent, canActivate: [authguardGuard]
+        path: 'user-view', component: UserViewComponent
       },
       {
-        path: 'needs', component: NeedsComponent, canActivate: [authguardGuard]
+        path: 'needs', component: NeedsComponent
       }
     ]
   },
