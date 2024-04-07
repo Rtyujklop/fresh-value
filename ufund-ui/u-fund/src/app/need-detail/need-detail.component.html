@@ -1,24 +1,35 @@
 <div *ngIf="need">
   <h2>Tree Details</h2>
-  <div class="detail-container">
-
-    <div class="name-box">
-      <label for="need-name">Tree Name: </label>
-      <p class="need-name">{{ need.name }}</p>
-    </div>
-
-    <div class="description-box">
-      <label for="need-description">Tree Description: </label>
-      <p class="need-description">{{ need.description }}</p>
-    </div>
-
-    <div class="cost-box">
-      <label for="need-cost">Tree Cost: </label>
-      <p class="need-cost">{{ need.cost }}</p>
-    </div>
-    <button (click)="addToCart(need)">Add to Cart</button>
+  <div>
+    <label for="need-name">Need Name: </label>
+    <input id="need" [(ngModel)]="need.name" placeholder="need" readonly />
+    <br />
+    <label for="need-description">Need Description: </label>
+    <input
+      id="need"
+      [(ngModel)]="need.description"
+      placeholder="Need"
+      readonly
+    />
+    <br />
+     <label for="need-cost">Need Cost: </label>
+     <input id="need"
+     [(ngModel)]="need.cost"
+     placeholder="Cost"
+     readonly
+      />
+    <br>
+     <label for="need-age">Need Age: </label>
+     <input id="need"
+     [(ngModel)]="need.age"
+     placeholder="Age"
+     readonly
+     />
+  <button (click)="addToCart(need)">Add to Cart</button>
+  <div class="cart-icon">
+    <button class="cart-button" (click)="navigateToCheckout()">
+      🛒
+      <span class="cart-count">{{ cartService.getCartCount() }}</span>
+    </button>
   </div>
-  
 </div>
-
-

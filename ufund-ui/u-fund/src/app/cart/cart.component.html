@@ -1,11 +1,28 @@
+<h1>Cart</h1>
+
+<p class="cart-summary">
+  ${{ cartService.getTotalPrice() }} Total -
+  {{ cartService.getTotalItems() }} Items
+</p>
+
 <div class="cart">
-  <h2>Your Cart</h2>
   <ul>
-    <li *ngFor="let item of cartService.getNeeds()">
-      <h3>{{ item.need.name }}</h3>
-      <p>{{ item.need.description }}</p>
-      <p>Quantity: {{ item.quantity }}</p>
-      <button (click)="deleteFromCart(item.need)">Remove</button>
+    <li *ngFor="let item of cartService.getNeeds()" class="cart-item">
+      <div class="item-details">
+        <h3>{{ item.need.name }}</h3>
+        <p>{{ item.need.description }}</p>
+        <div class="item-quantity">
+          <button (click)="decreaseQuantity(item)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="increaseQuantity(item)">+</button>
+        </div>
+      </div>
+      <div class="item-price">
+        <p>${{ item.need.cost * item.quantity }}</p>
+        <p *ngIf="item.quantity >= 2" class="each-price">
+          each: ${{ item.need.cost }}
+        </p>
+      </div>
     </li>
   </ul>
   <button (click)="checkout()">Checkout</button>
