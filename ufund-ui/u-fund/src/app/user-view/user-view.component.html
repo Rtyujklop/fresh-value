@@ -11,7 +11,7 @@
     <option (click)="ageFilterAsc()">Age (Ascending)</option>
     <option (click)="ageFilterDes()">Age (Descending)</option>
   </select>
-
+  <input type="text" placeholder="Enter name to filter" [(ngModel)]="nameFilterValue" (input)="nameFilter()">
 <ul class="needs">
   <li *ngFor="let need of needs">
     <button

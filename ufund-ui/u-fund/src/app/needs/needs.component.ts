@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
   styleUrl: './needs.component.css'
 })
 export class NeedsComponent implements OnInit{
-
+  nameFilterValue: string = '';
   constructor(private messageService: MessageService)
   {
     
@@ -81,5 +81,15 @@ export class NeedsComponent implements OnInit{
   {
     this.needs.sort((a,b) => b.age - a.age);
   }
-  
+  nameFilter(): void
+  {
+    const inputValue = (document.getElementById('filter') as HTMLInputElement).value.trim();
+  if (!inputValue) {
+    this.getNeeds(); // Reset to original list if input is empty
+    return;
+  }
+  this.needs = this.needs.filter(need =>
+    need.name.toLowerCase().includes(inputValue.toLowerCase())
+  );
+  }
 }

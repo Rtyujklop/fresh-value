@@ -33,6 +33,7 @@
     <option (click)="ageFilterAsc()">Age (Ascending)</option>
     <option (click)="ageFilterDes()">Age (Descending)</option>
   </select>
+  <input type="text" placeholder="Enter name to filter" [(ngModel)]="nameFilterValue" (input)="nameFilter()">
 </b>
 
 <ul class="needs">
