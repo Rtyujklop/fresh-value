@@ -1,7 +1,7 @@
 <nav *ngIf="!hideNavbar">
   <div class="nav-container">
     <div class="nav-buttons">
-      <button (click)="navigateTo('/login')">Logout</button>
+      <button (click)="logout()">Logout</button>
       <button (click)="navigateTo('/user-view')">Home</button>
       <button *ngIf="isUser() == false" (click)="navigateTo('/needs')">Admin View</button>
     </div>

@@ -31,9 +31,9 @@ export class NeedDetailComponent {
     this.router.navigate(['/user-view/checkout']);
   }
 
-    isUser(): Boolean 
-    {
-      return this.userService.isUser();
-    }
+  isUser(): Boolean 
+  {
+    return this.userService.isUser();
+  }
   
 }

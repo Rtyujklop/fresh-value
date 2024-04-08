@@ -32,4 +32,10 @@ export class NavbarComponent {
   {
     return this.userService.isUser();
   }
+
+  logout(): void 
+  {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
 }
