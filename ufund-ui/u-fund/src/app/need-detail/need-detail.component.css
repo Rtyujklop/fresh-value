@@ -8,8 +8,10 @@
 }
 
 .name-box,
-.description-box,
-.cost-box {
+.cost-box,
+.age-box,
+.description-box
+ {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     padding: 10px;

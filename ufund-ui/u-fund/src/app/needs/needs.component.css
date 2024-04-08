@@ -33,6 +33,11 @@ h4 {
   padding: 6px;
 }
 
+.need-age {
+  width: 300px;
+  padding: 6px;
+}
+
 .need-description {
   width: 400px;
   height: 400px;

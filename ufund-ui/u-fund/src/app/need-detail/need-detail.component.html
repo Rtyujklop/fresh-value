@@ -7,6 +7,16 @@
       <p class="need-name">{{ need.name }}</p>
     </div>
 
+    <div class="cost-box">
+          <label for="need-cost">Tree Cost: </label>
+          <p class="need-cost">${{ need.cost }}</p>
+    </div>
+
+    <div class="age-box">
+      <label for="need-age">Tree Age: </label>
+      <p class="need-age">{{ need.age }}</p>
+    </div>
+
     <div class="description-box">
       <label for="need-description">Tree Description: </label>
       <ng-container *ngFor="let line of need.description.split('\n')">
@@ -17,10 +27,7 @@
       </ng-container>
     </div>
 
-    <div class="cost-box">
-      <label for="need-cost">Tree Cost: </label>
-      <p class="need-cost">${{ need.cost }}</p>
-    </div>
+    
     <button (click)="addToCart(need)">Add to Cart</button>
   </div>
   

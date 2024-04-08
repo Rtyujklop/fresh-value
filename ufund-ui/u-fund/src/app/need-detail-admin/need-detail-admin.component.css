@@ -9,20 +9,25 @@ h4 {
     margin: 10px 0 0 0;
   }
   
-  .need-name {
-    width: 300px;
-    padding: 6px;
-  }
-  
-  .need-cost {
-    width: 300px;
-    padding: 6px;
-  }
-  
-  .need-description {
-    width: 400px;
-    height: 400px;
-  }
+.need-name {
+  width: 300px;
+  padding: 6px;
+}
+
+.need-cost {
+  width: 300px;
+  padding: 6px;
+}
+
+.need-age {
+  width: 300px;
+  padding: 6px;
+}
+
+.need-description {
+  width: 400px;
+  height: 400px;
+}
 
 .name-box,
 .description-box,
