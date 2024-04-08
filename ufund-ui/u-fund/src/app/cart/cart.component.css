@@ -52,7 +52,7 @@
 
 .cart-summary {
   font-weight: bold; /* Make the text bold */
-  color: rgb(0, 137, 39); /* Change the text color to light grey */
+  color: rgb(255, 255, 255); /* Change the text color to light grey */
   font-size: 24px;
 }
 

@@ -7,36 +7,35 @@
 
 .detail-container {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
 }
 
 .name-box,
 .cost-box,
 .age-box,
-.description-box
-{
+.description-box {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   padding: 10px;
   width: 300px;
-  max-width: 100%; 
+  max-width: 100%;
   font-weight: bold;
 }
 
 .description-attribute {
-    font-weight: bold;
-    margin-bottom: 0;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .description-content {
-    margin: 5px 0 10px 0;
-    max-width: 100%; 
-    font-weight: lighter;
+  margin: 5px 0 10px 0;
+  max-width: 100%;
+  font-weight: lighter;
 }
 
 button {
-    margin-top: 20px; /* Add margin to separate button from boxes */
+  margin-top: 8px; /* Add margin to separate button from boxes */
 }
 
 .cart-count {
@@ -51,14 +50,19 @@ button {
 }
 
 .cart-button {
-  font-size: 40px;
-  background-color: white;
+  font-size: 16px;
+  background-color: #4caf50;
   border: none;
-  border-radius: 15%;
+  color: white; /* White text */
+  padding: 10px 45px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+  transition-duration: 0.4s;
 }
 
 .cart-button:hover {
-  background-color: #d1d1d1; /* Change the background color on hover */
+  background-color: rgb(16, 107, 21); /* White background on hover */
   cursor: pointer;
 }
-

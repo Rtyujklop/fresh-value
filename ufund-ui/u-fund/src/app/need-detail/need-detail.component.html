@@ -19,12 +19,12 @@
     <label for="need-description">Tree Description: </label>
     <ng-container *ngFor="let line of need.description.split('\n')">
       <div *ngIf="line.trim() != ''">
-        <p class="description-attribute">{{ line.split(':')[0] }}:</p>
-        <p class="description-content">{{ line.split(':')[1] }}</p>
+        <p class="description-attribute">{{ line.split(":")[0] }}:</p>
+        <p class="description-content">{{ line.split(":")[1] }}</p>
       </div>
     </ng-container>
   </div>
   <div *ngIf="isUser() == true">
-    <button (click)="addToCart(need)">Add to Cart</button>
+    <button (click)="addToCart(need)" class="cart-button">Add to Cart</button>
   </div>
 </div>
