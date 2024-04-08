@@ -61,7 +61,7 @@ Sprint 2: The MVP, as of right now, consists of a basic web application that pul
 
 This section describes the application domain.
 
-![Domain Model](team_domain_model_final.pdf) (in directory)
+![Domain Model](team_domain_model_final.pdf)
 
 > _**[Sprint 2 & 4]** Provide a high-level overview of the domain for this application. You
 > can discuss the more important domain entities and their relationship
@@ -120,6 +120,7 @@ Sprint 3: As of sprint 3, the default page a user will ecounter is the login pag
 ### ViewModel Tier
 > _**[Sprint 1]** List the classes supporting this tier and provide a description of there purpose._
 Controller/Need Controller - Class that sends out the API request, and returns HTTP status' and Need objects
+Controller/UserController - CLass that sends out API requests regarding user information, and returns HTTP status'
 
 > _**[Sprint 4]** Provide a summary of this tier of your architecture. This
 > section will follow the same instructions that are given for the View
@@ -128,7 +129,7 @@ Controller/Need Controller - Class that sends out the API request, and returns H
 > _At appropriate places as part of this narrative provide **one** or more updated and **properly labeled**
 > static models (UML class diagrams) with some details such as critical attributes and methods._
 > 
-![Replace with your ViewModel Tier class diagram 1, etc.](model.png) (in directory)
+![View Model Tier](viewmodeltier.png)
 
 ### Model Tier
 > _**[Sprint 1]** List the classes supporting this tier and provide a description of there purpose._
@@ -142,6 +143,7 @@ Persistence/NeedDAOFile - Class that reads/writes to the JSON file (storage/inve
 > Tier above._
 
 Model/Need class - Handles data attributed to a need (Name, cost, id, age, description) as well as a few helper functions to get these values\
+Model/User class- Handles data attributed to a User, as well as a few helper functions to get these values\
 Persistence/NeedDAO - Public interface that defines the API functions dealing with Needs\
 Persistence/NeedDAOFile - Class that reads/writes to the need JSON file (storage/inventory), and performs functions on it when the API is called\
 Persistence/UserDAO - Public interface that defines the API functions dealing with Users\
@@ -151,7 +153,7 @@ Persistence UserFileDAO - Class that reads/writes to the user JSON file (storage
 > _At appropriate places as part of this narrative provide **one** or more updated and **properly labeled**
 > static models (UML class diagrams) with some details such as critical attributes and methods._
 > 
-![Replace with your Model Tier class diagram 1, etc.](model.png) (in directory)
+![Model Tier](modeltier.png) (in directory)
 
 ## OO Design Principles
 
@@ -159,6 +161,8 @@ Persistence UserFileDAO - Class that reads/writes to the user JSON file (storage
 Since the scope of the project is quite small at the moment, we were mainly thinking about Single Responsibility and how each class has it's own "job". In further sprints, we plan to add more from SOLID and other principles.
 
 > _**[Sprint 2, 3 & 4]** Will eventually address upto **4 key OO Principles** in your final design. Follow guidance in augmenting those completed in previous Sprints as indicated to you by instructor. Be sure to include any diagrams (or clearly refer to ones elsewhere in your Tier sections above) to support your claims._
+
+Sprint 3: We have elaborated on single responsibility, but we have also addressed dependency inversion by using several kinds of DAOs and FileDAOs with needs and users to handle API calls which are then handled in Angular with other classes designed around single responsibility. The DAOs also follow the Open/Closed principle, with the fileDAOs inheriting from their individual DAOs.
 
 > _**[Sprint 3 & 4]** OO Design Principles should span across **all tiers.**_
 
