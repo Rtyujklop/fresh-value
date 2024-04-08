@@ -139,11 +139,11 @@ Persistence/NeedDAOFile - Class that reads/writes to the JSON file (storage/inve
 > _**[Sprint 2, 3 & 4]** Provide a summary of this tier of your architecture. This
 > section will follow the same instructions that are given for the View
 > Tier above._
-Model/Need class - Handles data attributed to a need (Name, cost, id, age, description) as well as a few helper functions to get these values
-Persistence/NeedDAO - Public interface that defines the API functions dealing with Needs
-Persistence/NeedDAOFile - Class that reads/writes to the need JSON file (storage/inventory), and performs functions on it when the API is called
-Persistence/UserDAO - Public interface that defines the API functions dealing with Users
-Persistence UserFileDAO - Class that reads/writes to the user JSON file (storage/inventory), and performs functions on it when the API is called
+> Model/Need class - Handles data attributed to a need (Name, cost, id, age, description) as well as a few helper functions to get these values
+> Persistence/NeedDAO - Public interface that defines the API functions dealing with Needs
+> Persistence/NeedDAOFile - Class that reads/writes to the need JSON file (storage/inventory), and performs functions on it when the API is called
+> Persistence/UserDAO - Public interface that defines the API functions dealing with Users
+> Persistence UserFileDAO - Class that reads/writes to the user JSON file (storage/inventory), and performs functions on it when the API is called
 
 
 > _At appropriate places as part of this narrative provide **one** or more updated and **properly labeled**
