@@ -1,41 +1,46 @@
-<h2> Admin Page </h2>
+
 
 <a href="login">
-  <button> Logout </button>
+  <button class="logout"> Logout </button>
 </a>
 
-<h2>List of Trees</h2>
-<div>
-  <label for="need-name">Tree Name: </label>
-  <input id="need-name" #needName />
-  <br>
-  <label for="need-cost">Tree Cost: </label>
-  <input id="need-cost" type="number" #needCost/>
-  <br>
-  <label for="need-description">Tree Description: </label>
-  <input id="need-description" #needDescription/>
-  <br>
-  <button type="button" class="add-button" (click)="addNeed(needName.value, needCost.value, needDescription.value); needName.value=''; needCost.value=''; needDescription.value=''">
-    Add Need
-  </button>
-  
-</div>
+<h1> Admin Page </h1>
 
-<ul class="needs">
-  <li *ngFor="let need of needs">
-    <button
-      [class.selected]="need === selectedNeed"
-      type="button"
-      (click)="onSelect(need)"
-    >
-      <span class="name">{{ need.name }}</span> - $<span class="cost">{{
-        need.cost
-      }}</span>
+<div class="actionContainer">
+  <div class="addTreeContainer">
+    <h2>Add Trees</h2>
+    <h4>Tree Name: </h4>
+    <textarea class="need-name" #needName></textarea>
+    <br>
+    <h4>Tree Cost: </h4>
+    <textarea class="need-cost" type="number" #needCost></textarea>
+    <br>
+    <h4>Tree Description: </h4>
+    <textarea class="need-description" #needDescription></textarea>
+    <br>
+    <button type="button" class="add-button" (click)="addNeed(needName.value, needCost.value, needDescription.value); needName.value=''; needCost.value=''; needDescription.value=''">
+      Add Need
     </button>
-    <button type="button" class="delete-button" title="delete need"
-  (click)="deleteNeed(need)">Delete Tree</button>
-  </li>
-</ul>
-<app-need-detail-admin [need]="selectedNeed"></app-need-detail-admin>
+  </div>
+
+  
+  <ul class="needs">
+    <h2>List of Trees</h2>
+    <li *ngFor="let need of needs">
+      <button
+        [class.selected]="need === selectedNeed"
+        type="button"
+        (click)="onSelect(need)"
+      >
+        <span class="name">{{ need.name }}</span> - $<span class="cost">{{
+          need.cost
+        }}</span>
+      </button>
+      <button type="button" class="delete-button" title="delete need"
+    (click)="deleteNeed(need)">Delete Tree</button>
+    </li>
+  </ul>
+  <app-need-detail-admin [need]="selectedNeed"></app-need-detail-admin>
+</div>
 
 <a href="../user-view/" class="switch-link"> Switch to User view</a>
