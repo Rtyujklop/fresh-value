@@ -10,7 +10,6 @@
     <li *ngFor="let item of cartService.getNeeds()" class="cart-item">
       <div class="item-details">
         <h3>{{ item.need.name }}</h3>
-        <p>{{ item.need.description }}</p>
         <div class="item-quantity">
           <button (click)="decreaseQuantity(item)">-</button>
           <span>{{ item.quantity }}</span>
