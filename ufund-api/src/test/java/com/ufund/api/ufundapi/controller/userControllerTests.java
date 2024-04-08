@@ -18,7 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @Tag("Controller-Tier")
-public class userControllerTests {
+class UserControllerTests {
 
     @Mock
     private UserDAO mockUserDAO;
@@ -33,7 +33,7 @@ public class userControllerTests {
     }
 
     @Test
-    public void testCreateUser() throws IOException {
+    void testCreateUser() throws IOException {
         // Setup
         User testUser = new User(3, "test@test.org", "password");
         when(mockUserDAO.addUser(testUser)).thenReturn(testUser);
@@ -47,7 +47,7 @@ public class userControllerTests {
     }
 
     @Test
-    public void testCreateUserFail() throws IOException {
+    void testCreateUserFail() throws IOException {
         // Setup
         User testUser = new User(1, "Test", "password");
         when(mockUserDAO.addUser(testUser)).thenReturn(null);
@@ -60,7 +60,7 @@ public class userControllerTests {
     }
     
     @Test
-    public void testAddUserException() throws IOException {   
+    void testAddUserException() throws IOException {   
         // Setup
         User newUser = new User(1,"Test", "password");
         doThrow(new IOException()).when(mockUserDAO).addUser(newUser);
@@ -73,7 +73,7 @@ public class userControllerTests {
     }
 
     @Test
-    public void testSearchUser() throws IOException 
+    void testSearchUser() throws IOException 
     { 
         // Setup
         String searchString = "Te";
@@ -90,7 +90,7 @@ public class userControllerTests {
     }
 
     @Test
-    public void testGetUser() throws IOException
+    void testGetUser() throws IOException
     {
         int id = 1;
         User user = new User(1, "Test", "password");
@@ -103,7 +103,7 @@ public class userControllerTests {
     }
 
     @Test
-    public void testGetUserNotFound() throws IOException
+    void testGetUserNotFound() throws IOException
     {
         int id = 2;
         when(mockUserDAO.getUser(id)).thenReturn(null);
@@ -114,7 +114,7 @@ public class userControllerTests {
     }
 
     @Test
-    public void testDeleteUser() throws IOException
+    void testDeleteUser() throws IOException
     {
         // Setup
         int userId = 1;
@@ -130,7 +130,7 @@ public class userControllerTests {
     }
 
     @Test
-    public void testDeleteUserNotFound() throws IOException
+    void testDeleteUserNotFound() throws IOException
     {
         // Setup
         int userId = 1;
@@ -144,7 +144,7 @@ public class userControllerTests {
     }
     
     @Test
-    public void testDeleteUserException() throws IOException
+    void testDeleteUserException() throws IOException
     {
         // Setup
         int userId = 1;

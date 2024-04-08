@@ -3,13 +3,15 @@ h2 {
 }
 /* The .needs class styles the overall needs list container */
 .needs {
-  width: 60%;
-  max-height: 500px;
+  max-height: fit-content;
+  display: inline-block;
+  margin-inline: 10px;
 }
 
 /* Styles the li elements within the .needs class */
 .needs li {
   padding: 10px 0;
+  background-color: blue;
   list-style-type: none;
 }
 
@@ -43,4 +45,16 @@ h2 {
 .logout:hover {
   background-color: #c82333; /* Darker red background on hover */
   color: #f8f9fa; /* Lighter text on hover */
+}
+
+app-need-detail {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: inline-block;
+  background-color: lightblue;
+  max-height: 80vh;
+  overflow-y: auto;
 }

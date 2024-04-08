@@ -25,7 +25,7 @@ export class UserService{
     }
 
     getUsers(): Observable<User[]> {
-        var url = this.usersUrl;
+        const url = this.usersUrl;
         return this.http.get<User[]>(url).pipe(
             tap(_ => this.log('fetched users')),
             catchError(this.handleError<User[]>('getUsers', []))
@@ -33,7 +33,7 @@ export class UserService{
 
     }
     
-    getUser(name: String): Observable<User[]> {
+    getUser(name: string): Observable<User[]> {
         const url = `${this.usersUrl}?username=${name}`;
         return this.http.get<User[]>(url).pipe(
             tap(_ => this.log(`fetched user name =${name}`)),

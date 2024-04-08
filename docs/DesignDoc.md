@@ -166,6 +166,19 @@ Since the scope of the project is quite small at the moment, we were mainly thin
 > Analysis Tool (SonarQube) and provide your analysis and recommendations.  
 > Include any relevant screenshot(s) with each area._
 
+1. Needing to change names of certain classes so that 
+   they match other classes and the naming conventions are consistent throughout the project.
+   ![Static Code Analysis API Issues](staticCodeAnalysis(1).png)
+
+2. Needing to change some test classes to not public because they do not need to be delcared as so.
+   ![Static Code Analysis API Issues](staticCodeAnalysis(2).png)
+
+3. Changing a variable type from var to const so that there are no potential scope issues.
+   ![Static Code Analysis UI Issues](staticCodeAnalysis(3).png)
+
+4. Empty CSS files. To complete this issue, styles will be added into the CSS file.
+   ![Static Code Analysis UI Issues](staticCodeAnalysis(4).png)
+
 > _**[Sprint 4]** Discuss **future** refactoring and other design improvements your team would explore if the team had additional time._
 
 ## Testing

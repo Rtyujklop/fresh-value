@@ -4,7 +4,7 @@ import { NeedDetailComponent } from '../need-detail/need-detail.component';
 import { MessageService } from '../message.service';
 import { NeedService } from '../need.service';
 import { Need } from '../need';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router'; 
 import { UserService } from '../user.service';

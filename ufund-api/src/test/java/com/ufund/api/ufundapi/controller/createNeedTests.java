@@ -17,7 +17,7 @@ import com.ufund.api.ufundapi.model.Need;
 import com.ufund.api.ufundapi.persistence.NeedDAO;
 
 @Tag("Controller-tier")
-public class createNeedTests {
+class CreateNeedTests {
     private NeedController needController;
     private NeedDAO mockNeedDAO;
         
@@ -28,7 +28,7 @@ public class createNeedTests {
     }
 
     @Test
-    public void testCreateNeed() throws IOException {
+    void testCreateNeed() throws IOException {
         // Setup
         Need testedNeed = new Need(1,"Pine Tree", 100, 100, "A pine tree");
         when(mockNeedDAO.createNeed(testedNeed)).thenReturn(testedNeed);
@@ -42,7 +42,7 @@ public class createNeedTests {
     }
 
     @Test
-    public void testCreateNeedFailed() throws IOException { 
+    void testCreateNeedFailed() throws IOException { 
         // Setup
         Need testedNeed = new Need(1,"Pine Tree", 100, 100, "A pine tree");
         // when createNeed is called, return false simulating failed
@@ -56,7 +56,7 @@ public class createNeedTests {
     }
 
     @Test
-    public void testCreateNeedHandleException() throws IOException {   
+    void testCreateNeedHandleException() throws IOException {   
         // Setup
         Need testedNeed = new Need(1,"Pine Tree", 100, 100, "A pine tree");
 

@@ -44,6 +44,7 @@ class NeedControllerTest {
         verify(needDAO, times(1)).getNeed(id);
     }
 
+    @Test
     void testGetNeedNotFound() throws IOException 
     {
         int id = 5;
@@ -51,7 +52,7 @@ class NeedControllerTest {
 
         ResponseEntity<Need> response = needController.getNeed(id);
 
-        assertEquals(HttpStatus.NOT_FOUND, response);
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
 
     @Test

@@ -23,7 +23,7 @@ import org.springframework.http.ResponseEntity;
  */
 
 @Tag("Controller-tier")
-public class NeedControllerSearchNeedsTest {
+class NeedControllerSearchNeedsTest {
     private NeedController needController;
     private NeedDAO mockNeedDAO;
 
@@ -40,7 +40,7 @@ public class NeedControllerSearchNeedsTest {
     }
 
     @Test
-    public void testSearchNeeds() throws IOException { // findNeeds may throw IOException
+    void testSearchNeeds() throws IOException { // findNeeds may throw IOException
         // Setup
         String searchString = "pr";
         Need[] needs = new Need[2];
@@ -68,7 +68,7 @@ public class NeedControllerSearchNeedsTest {
     }
 
     @Test
-    public void testSearchNeedsHandleException() throws IOException { // findNeeds may throw IOException
+    void testSearchNeedsHandleException() throws IOException { // findNeeds may throw IOException
     // Setup
     String searchString = "an";
     // When createNeed is called on the Mock Need DAO, throw an IOException

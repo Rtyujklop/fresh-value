@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.logging.Logger;
-
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +13,7 @@ import org.springframework.stereotype.Component;
 import com.ufund.api.ufundapi.model.Need;
 
 /**
- * Implements the functionality for JSON file-based peristance for Needs
+ * Implements the functionality for JSON file-based peristance for needs
  * 
  * {@literal @}Component Spring annotation instantiates a single instance of this
  * class and injects the instance into other classes as needed
@@ -25,11 +23,9 @@ import com.ufund.api.ufundapi.model.Need;
 @Component
 public class NeedFileDAO implements NeedDAO{
 
-    private static final Logger LOG = Logger.getLogger(NeedFileDAO.class.getName());
-
-    Map<Integer,Need> Needs;   
+    Map<Integer,Need> needs;   
     private ObjectMapper objectMapper;  
-    private static int nextId;  
+    private int nextId;  
     private String filename;    
 
     /**
@@ -40,7 +36,7 @@ public class NeedFileDAO implements NeedDAO{
      * 
      * @throws IOException when file cannot be accessed or read from
      */
-    public NeedFileDAO(@Value("${Needs.file}") String filename,ObjectMapper objectMapper) throws IOException {
+    public NeedFileDAO(@Value("${needs.file}") String filename,ObjectMapper objectMapper) throws IOException {
         this.filename = filename;
         this.objectMapper = objectMapper;
         load();  
@@ -51,7 +47,7 @@ public class NeedFileDAO implements NeedDAO{
      * 
      * @return The next id
      */
-    private synchronized static int nextId() {
+    private synchronized int nextId() {
         int id = nextId;
         ++nextId;
         return id;
@@ -62,8 +58,8 @@ public class NeedFileDAO implements NeedDAO{
      * 
      * @return  The array of {@link Need needs}, may be empty
      */
-    private Need[] getNeedsArray() {
-        return getNeedsArray(null);
+    private Need[] getneedsArray() {
+        return getneedsArray(null);
     }
 
     /**
@@ -75,18 +71,18 @@ public class NeedFileDAO implements NeedDAO{
      * 
      * @return  The array of {@link Need needs}, may be empty
      */
-    private Need[] getNeedsArray(String containsText) { 
-        ArrayList<Need> NeedArrayList = new ArrayList<>();
+    private Need[] getneedsArray(String containsText) { 
+        ArrayList<Need> needArrayList = new ArrayList<>();
 
-        for (Need Need : Needs.values()) {
-            if (containsText == null || Need.getName().contains(containsText)) {
-                NeedArrayList.add(Need);
+        for (Need need : needs.values()) {
+            if (containsText == null || need.getName().contains(containsText)) {
+                needArrayList.add(need);
             }
         }
 
-        Need[] NeedArray = new Need[NeedArrayList.size()];
-        NeedArrayList.toArray(NeedArray);
-        return NeedArray;
+        Need[] needArray = new Need[needArrayList.size()];
+        needArrayList.toArray(needArray);
+        return needArray;
     }
 
     /**
@@ -97,8 +93,8 @@ public class NeedFileDAO implements NeedDAO{
      * @throws IOException when file cannot be accessed or written to
      */
     private boolean save() throws IOException {
-        Need[] NeedArray = getNeedsArray();
-        objectMapper.writeValue(new File(filename),NeedArray);
+        Need[] needArray = getneedsArray();
+        objectMapper.writeValue(new File(filename),needArray);
         return true;
     }
 
@@ -112,15 +108,15 @@ public class NeedFileDAO implements NeedDAO{
      * @throws IOException when file cannot be accessed or read from
      */
     private boolean load() throws IOException {
-        Needs = new TreeMap<>();
+        needs = new TreeMap<>();
         nextId = 0;
 
-        Need[] NeedArray = objectMapper.readValue(new File(filename),Need[].class);
+        Need[] needArray = objectMapper.readValue(new File(filename),Need[].class);
 
-        for (Need Need : NeedArray) {
-            Needs.put(Need.getId(),Need);
-            if (Need.getId() > nextId)
-                nextId = Need.getId();
+        for (Need need : needArray) {
+            needs.put(need.getId(),need);
+            if (need.getId() > nextId)
+                nextId = need.getId();
         }
         ++nextId;
         return true;
@@ -131,8 +127,8 @@ public class NeedFileDAO implements NeedDAO{
      */
     @Override
     public Need[] getNeeds() {
-        synchronized(Needs) {
-            return getNeedsArray();
+        synchronized(needs) {
+            return getneedsArray();
         }
     }
 
@@ -141,8 +137,8 @@ public class NeedFileDAO implements NeedDAO{
      */
     @Override
     public Need[] findNeeds(String containsText) {
-        synchronized(Needs) {
-            return getNeedsArray(containsText);
+        synchronized(needs) {
+            return getneedsArray(containsText);
         }
     }
 
@@ -151,9 +147,9 @@ public class NeedFileDAO implements NeedDAO{
      */
     @Override
     public Need getNeed(int id) {
-        synchronized(Needs) {
-            if (Needs.containsKey(id))
-                return Needs.get(id);
+        synchronized(needs) {
+            if (needs.containsKey(id))
+                return needs.get(id);
             else
                 return null;
         }
@@ -163,6 +159,7 @@ public class NeedFileDAO implements NeedDAO{
     ** {@inheritDoc}
      */
     @Override
+
     public Need createNeed(Need Need) throws IOException {
         synchronized(Needs) {
             Need newNeed = new Need(nextId(),Need.getName(),Need.getCost(), Need.getAge(),Need.getDescription());
@@ -176,14 +173,14 @@ public class NeedFileDAO implements NeedDAO{
     ** {@inheritDoc}
      */
     @Override
-    public Need updateNeed(Need Need) throws IOException {
-        synchronized(Needs) {
-            if (Needs.containsKey(Need.getId()) == false)
+    public Need updateNeed(Need need) throws IOException {
+        synchronized(needs) {
+            if (!needs.containsKey(need.getId()))
                 return null;  
 
-            Needs.put(Need.getId(),Need);
+            needs.put(need.getId(),need);
             save(); 
-            return Need;
+            return need;
         }
     }
 
@@ -192,9 +189,9 @@ public class NeedFileDAO implements NeedDAO{
      */
     @Override
     public boolean deleteNeed(int id) throws IOException {
-        synchronized(Needs) {
-            if (Needs.containsKey(id)) {
-                Needs.remove(id);
+        synchronized(needs) {
+            if (needs.containsKey(id)) {
+                needs.remove(id);
                 return save();
             }
             else

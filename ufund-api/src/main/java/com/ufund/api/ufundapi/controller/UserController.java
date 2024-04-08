@@ -32,33 +32,33 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable int id) {
-        LOG.info("GET /Users/" + id);
+        LOG.log(Level.ALL, "GET /Users/{0}", id);
         User user = userDAO.getUser(id);
 
         if (user != null)
-            return new ResponseEntity<User>(user,HttpStatus.OK);
+            return new ResponseEntity<>(user,HttpStatus.OK);
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/")
     public ResponseEntity<User[]> searchUsers(@RequestParam String username) {
-        LOG.info("GET /Users/?username=" + username);
+        LOG.log(Level.ALL, "GET /Users/?username={0}", username);
         User[] users = userDAO.findUser(username);
 
-        return new ResponseEntity<User[]>(users, HttpStatus.OK);
+        return new ResponseEntity<>(users, HttpStatus.OK);
         
     }
 
     @PostMapping("")
     public ResponseEntity<User> addUser(@RequestBody User user) {
-        LOG.info("POST /Users " + user);
+        LOG.log(Level.ALL, "POST /Users {0}", user);
         try {
             User createdUser = userDAO.addUser(user);
             if (createdUser == null) {
                 return new ResponseEntity<>(HttpStatus.CONFLICT);
             }
-            return new ResponseEntity<User>(createdUser, HttpStatus.CREATED);
+            return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
         } catch(IOException e) {
             LOG.log(Level.SEVERE,e.getLocalizedMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -67,13 +67,13 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable int id) {
-        LOG.info("DELETE /Users/" + id);
+        LOG.log(Level.ALL, "DELETE /Users/{0}", id);
         try {
             User userToDelete = userDAO.getUser(id);
             if (userToDelete != null)
             {
                 userDAO.deleteUser(id);
-                return new ResponseEntity<User>(HttpStatus.OK);
+                return new ResponseEntity<>(HttpStatus.OK);
             }
             else
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
