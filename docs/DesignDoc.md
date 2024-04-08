@@ -96,7 +96,7 @@ This section describes the web interface flow; this is how the user views and in
 
 > _Provide a summary of the application's user interface.  Describe, from the user's perspective, the flow of the pages in the web application._
 
-Sprint 2: As of sprint 2, the default page a user will ecounter is the login page. Depending on how the user logs in (admin/user), they will be shown slightly different pages. The user will be shown a list of needs, and when clicked on (this will be implemented in our 10%), a short description of the need will be displayed to the side of the list. The user will have the option to add needs to their funding basket, which then can be viewed on a different page. Alternatively, the admin will not have the ability to add or view the funding basket. Instead, they will have the opportunity to see the user view, as well as the option to modify the visible list of needs (add/delete/modify).
+Sprint 3: As of sprint 3, the default page a user will ecounter is the login page. Depending on how the user logs in (admin/user), they will be shown slightly different pages. The user will be shown a list of needs, and when clicked on, a short description of the need will be displayed to the side of the list. The user will have the option to add needs to their funding basket, which then can be viewed on a different page. Alternatively, the admin will not have the ability to add or view the cart. Instead, they will have the opportunity to see the user view, as well as the option to modify the visible list of needs (add/delete/modify). 
 
 
 ### View Tier
@@ -139,9 +139,11 @@ Persistence/NeedDAOFile - Class that reads/writes to the JSON file (storage/inve
 > _**[Sprint 2, 3 & 4]** Provide a summary of this tier of your architecture. This
 > section will follow the same instructions that are given for the View
 > Tier above._
-Model/Need class - Handles data attributed to a need (Name, cost, id, description) as well as a few helper functions to get these values
-Persistence/NeedDAO - Public interface that defines the API functions
-Persistence/NeedDAOFile - Class that reads/writes to the JSON file (storage/inventory), and performs functions on it when the API is called
+Model/Need class - Handles data attributed to a need (Name, cost, id, age, description) as well as a few helper functions to get these values
+Persistence/NeedDAO - Public interface that defines the API functions dealing with Needs
+Persistence/NeedDAOFile - Class that reads/writes to the need JSON file (storage/inventory), and performs functions on it when the API is called
+Persistence/UserDAO - Public interface that defines the API functions dealing with Users
+Persistence UserFileDAO - Class that reads/writes to the user JSON file (storage/inventory), and performs functions on it when the API is called
 
 
 > _At appropriate places as part of this narrative provide **one** or more updated and **properly labeled**
@@ -195,3 +197,4 @@ Sprint 2: For our code coverage, it seems that our NeedController needs to be te
 
 Sprint 1: n/a
 Sprint 2: n/a
+Sprint 3: n/a
