@@ -132,9 +132,10 @@ Controller/Need Controller - Class that sends out the API request, and returns H
 
 ### Model Tier
 > _**[Sprint 1]** List the classes supporting this tier and provide a description of there purpose._
-Model/Need class - Handles data attributed to a need (Name, cost, id, description) as well as a few helper functions to get these values
-Persistence/NeedDAO - Public interface that defines the API functions
-Persistence/NeedDAOFile - Class that reads/writes to the JSON file (storage/inventory), and performs functions on it when the API is called
+
+Model/Need class - Handles data attributed to a need (Name, cost, id, description) as well as a few helper functions to get these values\
+Persistence/NeedDAO - Public interface that defines the API functions\
+Persistence/NeedDAOFile - Class that reads/writes to the JSON file (storage/inventory), and performs functions on it when the API is called\
 
 > _**[Sprint 2, 3 & 4]** Provide a summary of this tier of your architecture. This
 > section will follow the same instructions that are given for the View
@@ -203,7 +204,7 @@ Sprint 2: As of right now, we have no stories that are failing their acceptance 
 
 >_**[Sprint 2 & 4]** **Include images of your code coverage report.** If there are any anomalies, discuss
 > those._
-(code-coverage.png) (in directory)
+![Code Coverage](code-coverage.png)
 Sprint 2: For our code coverage, it seems that our NeedController needs to be tested additonally, as our coverage is under 50%.
 
 ## Ongoing Rationale
