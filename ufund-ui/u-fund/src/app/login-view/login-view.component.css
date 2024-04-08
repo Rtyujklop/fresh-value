@@ -1,6 +1,7 @@
 form {
   width: 300px;
   margin: 0 auto;
+  margin-top: 10%;
 }
 
 h2 {
@@ -37,4 +38,14 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+.top-bar {
+  height: 69px;
+  background-color: #333;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
