@@ -1,0 +1,44 @@
+.detailContainer {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+h4 {
+    margin: 10px 0 0 0;
+  }
+  
+.need-name {
+  width: 300px;
+  padding: 6px;
+}
+
+.need-cost {
+  width: 300px;
+  padding: 6px;
+}
+
+.need-age {
+  width: 300px;
+  padding: 6px;
+}
+
+.need-description {
+  width: 400px;
+  height: 400px;
+}
+
+.name-box,
+.description-box,
+.cost-box {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    width: 300px; /* Adjust width as needed */
+    max-width: 100%; /* Ensure boxes don't exceed container width */
+}
+
+button {
+    margin-top: 20px; /* Add margin to separate button from boxes */
+}

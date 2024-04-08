@@ -20,5 +20,27 @@
     <div *ngIf="isUser() == true">
       <button (click)="addToCart(need)">Add to Cart</button>
     </div>
+    <div class="cost-box">
+          <label for="need-cost">Tree Cost: </label>
+          <p class="need-cost">${{ need.cost }}</p>
+    </div>
+
+    <div class="age-box">
+      <label for="need-age">Tree Age: </label>
+      <p class="need-age">{{ need.age }}</p>
+    </div>
+
+    <div class="description-box">
+      <label for="need-description">Tree Description: </label>
+      <ng-container *ngFor="let line of need.description.split('\n')">
+        <div *ngIf="line.trim() != ''">
+          <p class="description-attribute">{{ line.split(':')[0] }}:</p>
+          <p class="description-content">{{ line.split(':')[1] }}</p>
+        </div>
+      </ng-container>
+    </div>
+
+    
+    <button (click)="addToCart(need)">Add to Cart</button>
   </div>
 </div>

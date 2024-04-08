@@ -1,15 +1,39 @@
 <div *ngIf="need">
     <h2>Tree Details</h2>
-    <div><span>id: </span>{{ need.id }}</div>
+    <p class="treeId">id: {{ need.id }}</p>
     <div>
-      <label for="need-name">Tree Name: </label>
-      <input id="need" [(ngModel)]="need.name" placeholder="Name"/>
-      <br />
-      <label for="need-description">Tree Description: </label>
-      <input
-        id="need"
+      <h4>Tree Name: </h4>
+      <textarea 
+        class="need-name" 
+        [(ngModel)]="need.name" 
+        placeholder="Name">
+      </textarea>
+      <br>
+      <h4>Tree Cost: </h4>
+      <textarea 
+        class="need-cost" 
+        type="number" 
+        [(ngModel)]="need.cost"
+        placeholder="Cost"
+        #needCost>
+      </textarea>
+      <br>
+      <h4>Tree Age: </h4>
+      <textarea 
+        class="need-age" 
+        type="number" 
+        [(ngModel)]="need.age"
+        placeholder="Age"
+        #needAge>
+      </textarea>
+      <br>
+      <h4>Tree Description: </h4>
+      <textarea 
+        class="need-description" 
         [(ngModel)]="need.description"
         placeholder="Description"
+        #needDescription>
+      </textarea>
       />
       <br />
       <label for="need-cost">Need Cost: </label>
@@ -24,7 +48,7 @@
       placeholder="Age"
       />
     </div>
-    <button type="button" (click)="save()">save</button>
+    <button type="button" (click)="save()">Save</button>
   </div>
   
   

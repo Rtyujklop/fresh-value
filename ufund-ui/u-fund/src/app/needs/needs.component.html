@@ -1,36 +1,24 @@
 <h2>List of Trees - Admin Page</h2>
-<div>
-  <label for="need-name">Tree Name: </label>
-  <input id="need-name" #needName />
-  <br />
-  <label for="need-cost">Tree Cost: </label>
-  <input id="need-cost" type="number" #needCost />
-  <br />
-  <label for="need-description">Tree Description: </label>
-  <input id="need-description" #needDescription />
-  <br />
-  <label for="need-age">Need Age: </label>
-  <input id="need-age" type="number" #needAge />
-  <br />
-  <button
-    type="button"
-    class="add-button"
-    (click)="
-      addNeed(
-        needName.value,
-        needCost.value,
-        needDescription.value,
-        needAge.value
-      );
-      needName.value = '';
-      needCost.value = '';
-      needDescription.value = '';
-      needAge.value = ''
-    "
-  >
-    Add Need
-  </button>
-</div>
+
+<<div class="actionContainer">
+  <div class="addTreeContainer">
+    <h2>Add Trees</h2>
+    <h4>Tree Name: </h4>
+    <textarea class="need-name" #needName></textarea>
+    <br>
+    <h4>Tree Cost: </h4>
+    <textarea class="need-cost" type="number" #needCost></textarea>
+    <br>
+    <h4>Tree Age: </h4>
+    <textarea class="need-age" type="number" #needAge></textarea>
+    <br>
+    <h4>Tree Description: </h4>
+    <textarea class="need-description" #needDescription></textarea>
+    <br>
+    <button type="button" class="add-button" (click)="addNeed(needName.value, needCost.value, needDescription.value); needName.value=''; needCost.value=''; needDescription.value=''">
+      Add Need
+    </button>
+  </div>
 
 <b>
   <h3>Filter by...</h3>
@@ -50,26 +38,24 @@
 </b>
 
 <ul class="needs">
-  <li *ngFor="let need of needs">
-    <button
-      [class.selected]="need === selectedNeed"
-      type="button"
-      (click)="onSelect(need)"
-    >
-      <span class="name">{{ need.name }}</span> - $<span class="cost">{{
-        need.cost
-      }}</span>
-    </button>
-    <button
-      type="button"
-      class="delete-button"
-      title="delete need"
-      (click)="deleteNeed(need)"
-    >
-      Delete Tree
-    </button>
-  </li>
-</ul>
+    <h2>List of Trees</h2>
+    <li *ngFor="let need of needs">
+      <button
+        [class.selected]="need === selectedNeed"
+        type="button"
+        (click)="onSelect(need)"
+      >
+        <span class="name">{{ need.name }}</span> - $<span class="cost">{{
+          need.cost
+        }}</span>
+      </button>
+      <button type="button" class="delete-button" title="delete need"
+    (click)="deleteNeed(need)">Delete Tree</button>
+    </li>
+  </ul>
+  <app-need-detail-admin [need]="selectedNeed"></app-need-detail-admin>
+</div>
 <app-need-detail-admin [need]="selectedNeed"></app-need-detail-admin>
+
 
 <a href="../user-view/" class="switch-link"> Switch to User view</a>
