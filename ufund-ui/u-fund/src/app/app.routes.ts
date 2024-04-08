@@ -9,22 +9,31 @@ import { adminGuard } from './authguard/admin.guard';
 import { checkoutGuard } from './authguard/checkout.guard';
 
 export const routes: Routes = [
-  { path: 'needs', component: NeedsComponent, canActivate: [adminGuard]},
-  { path: 'login', component: LoginViewComponent,
-    children: 
-    [
+  { path: 'needs', component: NeedsComponent, canActivate: [adminGuard] },
+  {
+    path: 'login',
+    component: LoginViewComponent,
+    children: [
       {
-        path: 'user-view', component: UserViewComponent
+        path: 'user-view',
+        component: UserViewComponent,
       },
       {
-        path: 'needs', component: NeedsComponent
+        path: 'needs',
+        component: NeedsComponent,
       },
-      { path: 'user-view/checkout', component: CartComponent }
-    ]
+      { path: 'user-view/checkout', component: CartComponent },
+    ],
   },
   {
-    path: 'user-view', component: UserViewComponent, canActivate: [userGuard]
+    path: 'user-view',
+    component: UserViewComponent,
+    canActivate: [userGuard],
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'user-view/checkout', component: CartComponent, canActivate: [checkoutGuard]}
+  {
+    path: 'user-view/checkout',
+    component: CartComponent,
+    canActivate: [checkoutGuard],
+  },
 ];

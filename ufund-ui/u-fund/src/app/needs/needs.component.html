@@ -1,27 +1,37 @@
-<h2> Admin Page </h2>
-
-<a href="login">
-  <button (click)="deleteToken()"> Logout </button>
-</a>
+<h2>Admin Page</h2>
 
 <h2>List of Trees</h2>
 <div>
   <label for="need-name">Tree Name: </label>
   <input id="need-name" #needName />
-  <br>
+  <br />
   <label for="need-cost">Tree Cost: </label>
-  <input id="need-cost" type="number" #needCost/>
-  <br>
+  <input id="need-cost" type="number" #needCost />
+  <br />
   <label for="need-description">Tree Description: </label>
-  <input id="need-description" #needDescription/>
-  <br>
+  <input id="need-description" #needDescription />
+  <br />
   <label for="need-age">Need Age: </label>
-  <input id="need-age" type="number" #needAge/>
-  <br>
-  <button type="button" class="add-button" (click)="addNeed(needName.value, needCost.value, needDescription.value, needAge.value); needName.value=''; needCost.value=''; needDescription.value=''; needAge.value=''">
+  <input id="need-age" type="number" #needAge />
+  <br />
+  <button
+    type="button"
+    class="add-button"
+    (click)="
+      addNeed(
+        needName.value,
+        needCost.value,
+        needDescription.value,
+        needAge.value
+      );
+      needName.value = '';
+      needCost.value = '';
+      needDescription.value = '';
+      needAge.value = ''
+    "
+  >
     Add Need
   </button>
-  
 </div>
 
 <b>
@@ -33,12 +43,16 @@
     <option (click)="ageFilterAsc()">Age (Ascending)</option>
     <option (click)="ageFilterDes()">Age (Descending)</option>
   </select>
-  <input type="text" placeholder="Enter name to filter" [(ngModel)]="nameFilterValue" (input)="nameFilter()">
+  <input
+    type="text"
+    placeholder="Enter name to filter"
+    [(ngModel)]="nameFilterValue"
+    (input)="nameFilter()"
+  />
 </b>
 
 <ul class="needs">
   <li *ngFor="let need of needs">
-
     <button
       [class.selected]="need === selectedNeed"
       type="button"
@@ -48,8 +62,14 @@
         need.cost
       }}</span>
     </button>
-    <button type="button" class="delete-button" title="delete need"
-  (click)="deleteNeed(need)">Delete Tree</button>
+    <button
+      type="button"
+      class="delete-button"
+      title="delete need"
+      (click)="deleteNeed(need)"
+    >
+      Delete Tree
+    </button>
   </li>
 </ul>
 <app-need-detail-admin [need]="selectedNeed"></app-need-detail-admin>
