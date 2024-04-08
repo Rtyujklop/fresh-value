@@ -10,7 +10,7 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class NeedService {
 
-  constructor(private http: HttpClient, private messageService: MessageService) 
+  constructor(private http: HttpClient) 
   { 
     
   }
@@ -21,23 +21,17 @@ export class NeedService {
 
   private needsUrl = 'http://localhost:8080/Needs';
 
-  private log(message: string) {
-    this.messageService.add(`NeedService: ${message}`);
-  }
 
   getNeeds(): Observable<Need[]>  
   {
     return this.http.get<Need[]>(this.needsUrl)
-    .pipe(
-      tap(_ => this.log('fetched needs')),
-      catchError(this.handleError<Need[]>('getNeeds', []))
+    .pipe(catchError(this.handleError<Need[]>('getNeeds', []))
     );
   }
 
 
   updateNeed(need: Need): Observable<any> {
     return this.http.put(this.needsUrl + '/', need, this.httpOptions).pipe(
-      tap(_ => this.log(`updated need id=${need.id}`)),
       catchError(this.handleError<any>('updateNeed'))
     );
   }
@@ -45,7 +39,6 @@ export class NeedService {
   
   addNeed(need: Need): Observable<Need> {
     return this.http.post<Need>(this.needsUrl, need, this.httpOptions).pipe(
-      tap((newNeed: Need) => this.log(`added need w/ id=${newNeed.id}`)),
       catchError(this.handleError<Need>('addNeed'))
     );
   }
@@ -53,7 +46,6 @@ export class NeedService {
   deleteNeed(id: number): Observable<Need> 
   {
     return this.http.delete<Need>(this.needsUrl + '/' + id, this.httpOptions).pipe(
-      tap(_ => this.log('deleted need')),
       catchError(this.handleError<Need>('deleteNeed'))
     )
   } 
@@ -62,11 +54,8 @@ export class NeedService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      console.error(error); 
-
-      this.log(`${operation} failed: ${error.message}`);
-
-
+      console.error(error);
+      
       return of(result as T);
     };
 }

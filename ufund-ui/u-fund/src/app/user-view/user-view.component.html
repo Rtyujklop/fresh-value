@@ -1,38 +1,39 @@
-<h2>List of Trees</h2>
+<html>
+  <h2>List of Trees</h2>
 
-<h3>Filter by...</h3>
-<select id="filter">
-  <option>Filter</option>
-  <option (click)="costFilterAsc()">Cost (Ascending)</option>
-  <option (click)="costFilterDes()">Cost (Descending)</option>
-  <option (click)="ageFilterAsc()">Age (Ascending)</option>
-  <option (click)="ageFilterDes()">Age (Descending)</option>
-</select>
-<input
-  type="text"
-  placeholder="Enter name to filter"
-  [(ngModel)]="nameFilterValue"
-  (input)="nameFilter()"
-/>
-<div class = "container">
-  <ul class="needs">
-    <li *ngFor="let need of needs">
-      <button
-        [class.selected]="need === selectedNeed"
-        type="button"
-        (click)="onSelect(need)"
-      >
-        <span class="name">{{ need.name }}</span> - $<span class="cost">{{
-          need.cost
-        }}</span>
-      </button>
-    </li>
-  </ul>
-  <app-need-detail [need]="selectedNeed"></app-need-detail>  
-  <div class = "cartBuffer"></div>
-</div>
+  <h3>Filter by...</h3>
+  <select class="filter">
+    <option>Filter</option>
+    <option (click)="costFilterAsc()">Cost (Ascending)</option>
+    <option (click)="costFilterDes()">Cost (Descending)</option>
+    <option (click)="ageFilterAsc()">Age (Ascending)</option>
+    <option (click)="ageFilterDes()">Age (Descending)</option>
+  </select>
+  <input
+    type="text"
+    placeholder="Enter name to filter"
+    [(ngModel)]="nameFilterValue"
+    (input)="nameFilter()"
+  />
+  <div class = "container">
+    <ul class="needs">
+      <li *ngFor="let need of needs">
+        <button
+          [class.selected]="need === selectedNeed"
+          type="button"
+          (click)="onSelect(need)"
+        >
+          <span class="name">{{ need.name }}</span> - $<span class="cost">{{
+            need.cost
+          }}</span>
+        </button>
+      </li>
+    </ul>
+    <app-need-detail [need]="selectedNeed"></app-need-detail>  
+    <div class = "cartBuffer"></div>
+  </div>
 
-<div *ngIf="isUser() == false">
-  <a href="../needs" class="switch-link"> Switch to Admin View</a>
-</div>
-
+  <div *ngIf="isUser() == false">
+    <a href="../needs" class="switch-link"> Switch to Admin View</a>
+  </div>
+</html>

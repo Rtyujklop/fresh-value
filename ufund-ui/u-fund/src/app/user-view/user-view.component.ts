@@ -19,7 +19,7 @@ import { UserService } from '../user.service';
 })
 export class UserViewComponent {
   nameFilterValue: string = '';
-  constructor(private messageService: MessageService, private userService: UserService)
+  constructor(private userService: UserService)
   {
     
   }
@@ -36,7 +36,6 @@ export class UserViewComponent {
   onSelect(need: Need): void 
   {
     this.selectedNeed = need;
-    this.messageService.add(`NeedsComponent: Selected need id=${need.id}`);
   }
 
   getNeeds(): void 

@@ -17,7 +17,7 @@ import { NeedDetailAdminComponent } from '../need-detail-admin/need-detail-admin
 })
 export class NeedsComponent implements OnInit{
   nameFilterValue: string = '';
-  constructor(private messageService: MessageService)
+  constructor()
   {
     
   }
@@ -34,7 +34,6 @@ export class NeedsComponent implements OnInit{
   onSelect(need: Need): void 
   {
     this.selectedNeed = need;
-    this.messageService.add(`NeedsComponent: Selected need id=${need.id}`);
   }
 
   getNeeds(): void 
