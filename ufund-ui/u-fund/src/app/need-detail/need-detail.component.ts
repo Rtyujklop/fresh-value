@@ -5,6 +5,7 @@ import { NgFor, NgIf, UpperCasePipe, Location } from '@angular/common';
 import { CartService } from '../cart-services/cart.service';
 import { NeedService } from '../need.service';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-need-detail',
@@ -19,8 +20,7 @@ export class NeedDetailComponent {
   constructor(
     private router: Router,
     public cartService: CartService,
-    private needService: NeedService,
-    private location: Location
+    private userService: UserService
   ) {}
 
   addToCart(need: Need) {
@@ -31,15 +31,9 @@ export class NeedDetailComponent {
     this.router.navigate(['/user-view/checkout']);
   }
 
-  isUser(): Boolean
-  {
-    if (localStorage.getItem('token') == 'user-token')
+    isUser(): Boolean 
     {
-      return true;
+      return this.userService.isUser();
     }
-    else 
-    {
-      return false;
-    }
-  }
+  
 }

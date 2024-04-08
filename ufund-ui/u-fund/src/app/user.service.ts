@@ -63,6 +63,17 @@ export class UserService{
     //     ));
     // }
 
+    isUser(): Boolean
+    {
+        if (localStorage.getItem('token') == 'user-token')
+        {
+        return true;
+        }
+        else 
+        {
+        return false;
+        }
+    }
    
     private log(message: string) {
         this.messageService.add(`UserService: ${message}`);

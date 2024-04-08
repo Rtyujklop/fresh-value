@@ -6,7 +6,8 @@ import { NeedService } from '../need.service';
 import { Need } from '../need';
 import { FormsModule, NgModel } from '@angular/forms';
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router'; 
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-view',
@@ -18,7 +19,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class UserViewComponent {
   nameFilterValue: string = '';
-  constructor(private messageService: MessageService)
+  constructor(private messageService: MessageService, private userService: UserService)
   {
     
   }
@@ -78,14 +79,7 @@ export class UserViewComponent {
   
   isUser(): Boolean
   {
-    if (localStorage.getItem('token') == 'user-token')
-    {
-      return true;
-    }
-    else 
-    {
-      return false;
-    }
+    return this.userService.isUser();
   }
 
   deleteToken(): void 
