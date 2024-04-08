@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { NeedDetailComponent } from '../need-detail/need-detail.component';
 import { NeedService } from '../need.service';
-import { MessageService } from '../message.service';
 import { NeedDetailAdminComponent } from '../need-detail-admin/need-detail-admin.component';
 
 @Component({

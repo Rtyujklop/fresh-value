@@ -1,11 +1,18 @@
-h2 {
-  display: flex;
-  margin: 25px 0px 0px 10px;
-  list-style-type: none;
-  font-size: 2em;
+h2 
+{
+  color:#ffffff;
+  text-align: center;
+  margin-top: 100px;
+}
+
+h3 
+{
+  color:#ffffff;
+  left: 100px;
 }
 
 .container {
+  padding-top: 30px;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
@@ -28,8 +35,6 @@ h2 {
   padding: 10px 0;
   padding-left: 25px;
   list-style-type: none; 
-  align-items: center;
-  
 }
 
 /* Styles the button elements within the li elements in the .needs class */
@@ -92,5 +97,17 @@ app-need-detail {
   app-need-detail {
     margin-top: 0; 
   }
+}
+
+.filter
+{
+  position: absolute;
+  left: 1%;
+}
+
+.nameFilter
+{
+  position: absolute;
+  left: 8%;
 }
 

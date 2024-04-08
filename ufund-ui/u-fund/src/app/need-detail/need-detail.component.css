@@ -16,7 +16,7 @@
     width: 300px;
     max-width: 100%; 
     font-weight: bold;
-    text-align: center;
+    
 }
 
 .description-attribute {
@@ -27,7 +27,7 @@
 .description-content {
     margin: 5px 0 10px 0;
     max-width: 100%; 
-    font-weight: lighter
+    font-weight: lighter;
 }
 
 button {

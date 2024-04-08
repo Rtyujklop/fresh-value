@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CartComponent } from '../cart/cart.component';
 import { NeedDetailComponent } from '../need-detail/need-detail.component';
-import { MessageService } from '../message.service';
 import { NeedService } from '../need.service';
 import { Need } from '../need';
 import { FormsModule } from '@angular/forms';

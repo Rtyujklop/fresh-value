@@ -3,7 +3,6 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { NeedsComponent } from './needs/needs.component';
 import { NeedDetailComponent } from './need-detail/need-detail.component';
 import { CartComponent } from './cart/cart.component';
-import { MessagesComponent } from './messages/messages.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
@@ -14,7 +13,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     NeedsComponent,
     NeedDetailComponent,
     CartComponent,
-    MessagesComponent,
     RouterModule,
     NavbarComponent,
   ],

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-import { MessageService } from '../message.service';
+
 @Component({
   selector: 'app-login-view',
   templateUrl: './login-view.component.html',

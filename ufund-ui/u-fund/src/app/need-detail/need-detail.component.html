@@ -1,28 +1,14 @@
 <div *ngIf="need">
   <h2>Tree Details</h2>
-  <div>
-    <label for="need-name">Need Name: </label>
-    <input id="need" [(ngModel)]="need.name" placeholder="need" readonly />
-    <br />
-    <label for="need-description">Need Description: </label>
-    <input
-      id="need"
-      [(ngModel)]="need.description"
-      placeholder="Need"
-      readonly
-    />
-    <br />
-    <label for="need-cost">Need Cost: </label>
-    <input id="need" [(ngModel)]="need.cost" placeholder="Cost" readonly />
-    <br />
-    <label for="need-age">Need Age: </label>
-    <input id="need" [(ngModel)]="need.age" placeholder="Age" readonly />
-    <div *ngIf="isUser() == true">
-      <button (click)="addToCart(need)">Add to Cart</button>
+  <div> 
+    <div class="name-box">
+      <label for="need-name">Tree Name: </label>
+      <p class="need-name">{{ need.name }}</p>
     </div>
+
     <div class="cost-box">
-          <label for="need-cost">Tree Cost: </label>
-          <p class="need-cost">${{ need.cost }}</p>
+      <label for="need-cost">Tree Cost: </label>
+      <p class="need-cost">${{ need.cost }}</p>
     </div>
 
     <div class="age-box">
@@ -39,8 +25,8 @@
         </div>
       </ng-container>
     </div>
-
-    
-    <button (click)="addToCart(need)">Add to Cart</button>
+    <div *ngIf="isUser() == true">
+      <button (click)="addToCart(need)">Add to Cart</button>
+    </div>
   </div>
 </div>
