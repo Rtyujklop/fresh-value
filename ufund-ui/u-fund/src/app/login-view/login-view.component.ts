@@ -14,8 +14,7 @@ export class LoginViewComponent {
 
   constructor(
     private userService: UserService,
-    private router: Router,
-    private messageService: MessageService
+    private router: Router
   ) { }
 
   login(username: string, password: string) {
