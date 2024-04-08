@@ -9,12 +9,17 @@
 
     <div class="description-box">
       <label for="need-description">Tree Description: </label>
-      <p class="need-description">{{ need.description }}</p>
+      <ng-container *ngFor="let line of need.description.split('\n')">
+        <div *ngIf="line.trim() != ''">
+          <p class="description-line">{{ line.split(':')[0] }}:</p>
+          <p class="description-content">{{ line.split(':')[1] }}</p>
+        </div>
+      </ng-container>
     </div>
 
     <div class="cost-box">
       <label for="need-cost">Tree Cost: </label>
-      <p class="need-cost">{{ need.cost }}</p>
+      <p class="need-cost">${{ need.cost }}</p>
     </div>
     <button (click)="addToCart(need)">Add to Cart</button>
   </div>
