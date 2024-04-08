@@ -3,7 +3,6 @@
   <ul>
     <li *ngFor="let item of cartService.getNeeds()">
       <h3>{{ item.need.name }}</h3>
-      <p>{{ item.need.description }}</p>
       <p>Quantity: {{ item.quantity }}</p>
       <button (click)="deleteFromCart(item.need)">Remove</button>
     </li>
