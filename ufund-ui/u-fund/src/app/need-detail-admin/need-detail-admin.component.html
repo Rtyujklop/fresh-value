@@ -34,7 +34,19 @@
         placeholder="Description"
         #needDescription>
       </textarea>
+      />
+      <br />
+      <label for="need-cost">Need Cost: </label>
+      <input id="need"
+      [(ngModel)]="need.cost"
+        placeholder="Cost"
+      />
       <br>
+      <label for="need-age">Need Age: </label>
+      <input id="need"
+      [(ngModel)]="need.age"
+      placeholder="Age"
+      />
     </div>
     <button type="button" (click)="save()">Save</button>
   </div>

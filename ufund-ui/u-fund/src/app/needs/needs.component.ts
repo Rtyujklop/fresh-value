@@ -16,7 +16,7 @@ import { NeedDetailAdminComponent } from '../need-detail-admin/need-detail-admin
   styleUrl: './needs.component.css'
 })
 export class NeedsComponent implements OnInit{
-
+  nameFilterValue: string = '';
   constructor(private messageService: MessageService)
   {
     
@@ -43,12 +43,13 @@ export class NeedsComponent implements OnInit{
       .subscribe(needs => this.needs = needs)
   }
 
-  addNeed(name: string, costNumber: string, description: string): void {
-    
-    const cost: number = parseInt(costNumber);
+  addNeed(name: string, costNumber: string, description: string, ageNumber: string): void {
+
+    const cost: Number = parseInt(costNumber);
+    const age: Number = parseInt(ageNumber);
     name = name.trim();
     if (!name) { return; }
-    this.needService.addNeed({ name, cost, description } as Need)
+    this.needService.addNeed({ name, cost, description, age } as Need)
       .subscribe(need => {
         this.needs.push(need);
       });
@@ -60,5 +61,40 @@ export class NeedsComponent implements OnInit{
     this.needService.deleteNeed(need.id).subscribe();
   }
 
-  
+  costFilterAsc(): void
+  {
+    this.needs.sort((a,b) => a.cost - b.cost);
+  }
+
+  costFilterDes(): void
+  {
+    this.needs.sort((a,b) => b.cost - a.cost);
+  }
+
+  ageFilterAsc(): void 
+  {
+    this.needs.sort((a,b) => a.age - b.age);
+  }
+
+  ageFilterDes(): void
+  {
+    this.needs.sort((a,b) => b.age - a.age);
+  }
+
+  nameFilter(): void
+  {
+    const queue = this.nameFilterValue.trim().toLowerCase();
+    if (!queue) {
+      this.getNeeds(); // Reset to original list if queue is empty
+      return;
+    }
+    this.needs = this.needs.filter(need =>
+      need.name.toLowerCase().includes(queue)
+    );
+  }
+
+  deleteToken(): void 
+  {
+    localStorage.removeItem('token');
+  }
 }

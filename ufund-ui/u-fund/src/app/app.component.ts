@@ -4,11 +4,20 @@ import { NeedsComponent } from './needs/needs.component';
 import { NeedDetailComponent } from './need-detail/need-detail.component';
 import { CartComponent } from './cart/cart.component';
 import { MessagesComponent } from './messages/messages.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NeedsComponent, NeedDetailComponent, CartComponent, MessagesComponent, RouterModule],
+  imports: [
+    RouterOutlet,
+    NeedsComponent,
+    NeedDetailComponent,
+    CartComponent,
+    MessagesComponent,
+    RouterModule,
+    NavbarComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

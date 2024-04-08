@@ -1,0 +1,16 @@
+<nav *ngIf="!hideNavbar">
+  <div class="nav-container">
+    <div class="nav-buttons">
+      <button (click)="navigateTo('/login')">Logout</button>
+      <button (click)="navigateTo('/user-view')">Home</button>
+      <button *ngIf="isUser() == false" (click)="navigateTo('/needs')">Admin View</button>
+    </div>
+
+    <div *ngIf="isUser() == true" class="checkout-icon cart-icon">
+      <button (click)="navigateTo('user-view/checkout')">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">{{ cartService.getCartCount() }}</span>
+      </button>
+    </div>
+  </div>
+</nav>

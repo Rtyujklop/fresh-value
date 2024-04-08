@@ -1,6 +1,7 @@
 form {
   width: 300px;
   margin: 0 auto;
+  margin-top: 10%;
 }
 
 h2 {
@@ -9,28 +10,19 @@ h2 {
 }
 
 .field {
-  border: solid 1px #ccc;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #f9f9f9;
   border-radius: 3px;
 }
 
-input[type="text"] {
-  width: 100%;
-  border: 1px solid #ccc;
-  padding: 10px 0;
-  margin-bottom: 10px;
-  background: none;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
-}
-
+input[type="text"],
 input[type="password"] {
   width: 100%;
   border: 1px solid #ccc;
   padding: 10px 0;
   margin-bottom: 10px;
   background: none;
+  border-radius: 20px;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -41,9 +33,19 @@ button {
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 20px;
 }
 
 button:hover {
   background-color: #0056b3;
+}
+
+.top-bar {
+  height: 69px;
+  background-color: #333;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }

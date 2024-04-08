@@ -1,10 +1,6 @@
-<a href="login">
-  <button class="logout"> Logout </button>
-</a>
+<h2>List of Trees - Admin Page</h2>
 
-<h1> Admin Page </h1>
-
-<div class="actionContainer">
+<<div class="actionContainer">
   <div class="addTreeContainer">
     <h2>Add Trees</h2>
     <h4>Tree Name: </h4>
@@ -24,8 +20,24 @@
     </button>
   </div>
 
-  
-  <ul class="needs">
+<b>
+  <h3>Filter by...</h3>
+  <select id="filter">
+    <option>Filter</option>
+    <option (click)="costFilterAsc()">Cost (Ascending)</option>
+    <option (click)="costFilterDes()">Cost (Descending)</option>
+    <option (click)="ageFilterAsc()">Age (Ascending)</option>
+    <option (click)="ageFilterDes()">Age (Descending)</option>
+  </select>
+  <input
+    type="text"
+    placeholder="Enter name to filter"
+    [(ngModel)]="nameFilterValue"
+    (input)="nameFilter()"
+  />
+</b>
+
+<ul class="needs">
     <h2>List of Trees</h2>
     <li *ngFor="let need of needs">
       <button
@@ -43,5 +55,7 @@
   </ul>
   <app-need-detail-admin [need]="selectedNeed"></app-need-detail-admin>
 </div>
+<app-need-detail-admin [need]="selectedNeed"></app-need-detail-admin>
+
 
 <a href="../user-view/" class="switch-link"> Switch to User view</a>

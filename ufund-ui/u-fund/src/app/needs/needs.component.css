@@ -1,6 +1,7 @@
 h1 {
   text-align: center;
   color: #333;
+  margin-top: 3%;
 }
 
 .actionContainer {
@@ -117,7 +118,6 @@ app-need-detail-admin {
   font-weight: bold;
   text-decoration: none; 
 }
-
 /* Media query for screens narrower than 1065px */
 @media (max-width: 1065px) {
   .actionContainer {

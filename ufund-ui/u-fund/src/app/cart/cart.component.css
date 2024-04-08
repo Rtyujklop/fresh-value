@@ -1,22 +1,15 @@
 /* The .cart class styles the overall cart container */
 .cart {
-  width: 20%;
-  position: absolute;
-  top: 0; /* Positions the cart at the top of the parent container */
-  right: 0; /* Positions the cart at the right of the parent container */
+  width: 40%;
+  position: relative;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px;
   background-color: #f8f8f8;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-/* Styles the h2 elements within the .cart class */
-.cart h2 {
-  text-align: center;
-  color: #333;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Styles the ul elements within the .cart class */
@@ -31,31 +24,6 @@
   padding: 5px 0;
 }
 
-/* Styles the h3 elements within the li elements in the .cart class */
-.cart ul li h3 {
-  color: #333;
-}
-
-/* Styles the p elements within the li elements in the .cart class */
-.cart ul li p {
-  color: #666;
-}
-
-/* Styles the button elements within the li elements in the .cart class */
-.cart ul li button {
-  background-color: #ff6347;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-/* Styles the button elements within the li elements in the .cart class when they are hovered over */
-.cart ul li button:hover {
-  background-color: #ff4500;
-}
-
 .cart button {
   background-color: #4caf50; /* Green background */
   border: none; /* Remove border */
@@ -68,7 +36,7 @@
   margin: 4px 2px;
   cursor: pointer; /* Mouse pointer on hover */
   transition-duration: 0.4s; /* Transition effects */
-  border-radius: 12px; /* Rounded corners */
+  border-radius: 25px; /* Rounded corners */
   align-items: center;
 }
 
@@ -80,4 +48,61 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.cart-summary {
+  font-weight: bold; /* Make the text bold */
+  color: rgb(0, 137, 39); /* Change the text color to light grey */
+  font-size: 24px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.item-details {
+  flex: 2;
+}
+
+.cart .item-price {
+  flex: 1;
+  text-align: right;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgba(0, 0, 0);
+}
+
+.item-quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px; /* Adjust as needed */
+}
+
+.item-quantity button {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+  line-height: 1; /* Align the '+' and '-' vertically */
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.item-quantity button:hover {
+  background-color: #4e4e4e1f;
+}
+
+.each-price {
+  font-size: 16px;
+  color: rgb(101, 101, 101);
 }

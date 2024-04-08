@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf, UpperCasePipe, Location } from '@angular/common';
 import { CartService } from '../cart-services/cart.service';
 import { NeedService } from '../need.service';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-need-detail',
@@ -15,12 +17,23 @@ import { NeedService } from '../need.service';
 export class NeedDetailComponent {
   @Input() need?: Need;
 
-  constructor(private cartService: CartService, private needService: NeedService, private location: Location) {}
+  constructor(
+    private router: Router,
+    public cartService: CartService,
+    private userService: UserService
+  ) {}
+
   addToCart(need: Need) {
     this.cartService.addToCart(need);
   }
 
-}
+  navigateToCheckout() {
+    this.router.navigate(['/user-view/checkout']);
+  }
 
+    isUser(): Boolean 
+    {
+      return this.userService.isUser();
+    }
   
-
+}

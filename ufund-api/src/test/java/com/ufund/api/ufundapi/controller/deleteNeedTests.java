@@ -30,7 +30,7 @@ class DeleteNeedTests {
     void testDeleteNeed() throws IOException {
         // Setup
         int NeedId = 1;
-        Need need = new Need(NeedId, "Pine Tree", 100, "A pine tree");
+        Need need = new Need(NeedId, "Pine Tree", 100, 100, "A pine tree");
         when(mockNeedDAO.getNeed(NeedId)).thenReturn(need); 
         when(mockNeedDAO.deleteNeed(NeedId)).thenReturn(true);
 
@@ -59,7 +59,7 @@ class DeleteNeedTests {
     void testDeleteNeedHandleException() throws IOException {
         // Setup
         int needId = 1;
-        Need need = new Need(needId, "Pine Tree", 100, "A pine tree");
+        Need need = new Need(needId, "Pine Tree", 100, 100, "A pine tree");
         // When getNeed is called on the Mock Need DAO, return the Need object
         when(mockNeedDAO.getNeed(needId)).thenReturn(need);
         when(mockNeedDAO.deleteNeed(needId)).thenThrow(new IOException());
