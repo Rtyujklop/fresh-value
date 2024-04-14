@@ -214,6 +214,8 @@ Sprint 2: For our code coverage, it seems that our NeedController needs to be te
 ## Ongoing Rationale
 >_**[Sprint 1, 2, 3 & 4]** Throughout the project, provide a time stamp **(yyyy/mm/dd): Sprint # and description** of any _**mayor**_ team decisions or design milestones/changes and corresponding justification._
 
-Sprint 1: n/a
-Sprint 2: n/a
-Sprint 3: n/a
+Sprint 1: 2024/11/15, We implemented the Needs.json, User.json and other files that began the foundation of the
+project.
+Sprint 2: 2024/12/8 Around this time we mad many improvements to the project with .ts,.html,.spec ts, etc.
+Espically we figuring out how routing works we got the login page with the user and admin view
+Sprint 3: 2024/13/1 Around here we made a cart and then made the website look better with css files. Then we figured out the filter like a copult of days after.
